@@ -1,13 +1,13 @@
 import './App.scss'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import WarehousesPage from './pages/WarehousesPage';
-import WarehousesDetailsPage from './pages/WarehousesDetailsPage';
-import WarehousesEditPage from './pages/WarehousesEditPage';
-import WarehousesAddPage from './pages/WarehousesAddPage';
-import InventoryPage from './pages/InventoryPage';
-import InventoryDetailsPage from './pages/InventoryDetailsPage';
-import InventoryEditPage from './pages/InventoryEditPage';
-import InventoryAddPage from './pages/InventoryAddPage';
+import WarehousesPage from './pages/WarehousesPage/WarehousesPage';
+import WarehousesDetailsPage from './pages/WarehousesDetailsPage/WarehousesDetailsPage';
+import WarehousesEditPage from './pages/WarehousesEditPage/WarehousesEditPage';
+import WarehousesAddPage from './pages/WarehousesAddPage/WarehousesAddPage';
+import InventoryPage from './pages/InventoryPage/InventoryPage';
+import InventoryDetailsPage from './pages/InventoryDetailsPage/InventoryDetailsPage';
+import InventoryEditPage from './pages/InventoryEditPage/InventoryEditPage';
+import InventoryAddPage from './pages/InventoryAddPage/InventoryAddPage';
 
 function App() {
 
