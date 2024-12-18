@@ -1,18 +1,18 @@
-function WarehousesListItem() {
+function WarehousesListItem({ data }) {
   return (
     <article className="item">
       <div className="item__details">
         <div className="item__location">
           <p className="item__label">WAREHOUSE</p>
-          <p className="item__place">dynamic-location</p>
+          <p className="item__place">{data.warehouse_name}</p>
           <p className="item__label">ADDRESS</p>
-          <p className="item__info">dynamic-address</p>
+          <p className="item__info">{`${data.address}, ${data.city}, ${data.country}`}</p>
         </div>
         <div className="item__contact">
           <p className="item__label">CONTACT NAME</p>
-          <p className="item__info">dynamic-name</p>
+          <p className="item__info">{data.contact_name}</p>
           <p className="item__label">CONTACT INFORMATION</p>
-          <p className="item__info">dynamic-email</p>
+          <p className="item__info">{data.contact_email}</p>
         </div>
       </div>
       <div className="item__icons">
