@@ -1,22 +1,47 @@
-@use '../../styles/mixins' as *;
-@use '../../styles/variables' as *;
-@use '../../styles/typography' as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+@use "../../styles/typography" as *;
 
 .warehouses {
-    padding: 1rem;
-    width: 85%;
-    margin: 0 auto;
-    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
-    border-radius: 5px;
+  padding: 1rem 1.5rem;
+  width: 85%;
+  margin: 0 auto;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
 
-    &__title {
-        margin-top: 1rem;
-    }
+  &__title {
+    margin-top: 1rem;
+  }
 
-    &__search {
-        height: 1.5rem;
-        border-radius: 20px;
-        width: 100%;
-        border: 1px solid $border-color;
+  &__search {
+    position: relative;
+  }
+
+  &__input {
+    height: 1.85rem;
+    border-radius: 20px;
+    width: 98%;
+    border: 1px solid $border-color;
+    padding: none;
+
+    &::placeholder {
+      font-family: "Titillium Web";
+      font-weight: 400;
+      font-size: 0.813rem;
+      padding-left: 0.75rem;
     }
+  }
+
+  &__icon {
+    position: absolute;
+    right: 9px;
+    top: 7px;
+    height: 1.25rem;
+  }
+
+  &__button {
+    @include button-blue;
+    width: 100%;
+    margin: 1rem 0;
+  }
 }
