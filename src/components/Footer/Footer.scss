@@ -1,0 +1,9 @@
+@use "../../styles/typography" as *;
+@use "../../styles/variables" as *;
+
+.footer {
+    &__text {
+        text-align: center;
+        color: $header-color;
+    }
+}

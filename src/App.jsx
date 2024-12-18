@@ -8,6 +8,7 @@ import InventoryPage from './pages/InventoryPage/InventoryPage';
 import InventoryDetailsPage from './pages/InventoryDetailsPage/InventoryDetailsPage';
 import InventoryEditPage from './pages/InventoryEditPage/InventoryEditPage';
 import InventoryAddPage from './pages/InventoryAddPage/InventoryAddPage';
+import Footer from './components/Footer/Footer'
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/inventory/add" element={<InventoryAddPage />}/>
         </Routes>
       </>
+      <Footer />
     </BrowserRouter>
   )
 }

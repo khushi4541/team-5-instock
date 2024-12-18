@@ -1,7 +1,12 @@
-export default function WarehousesPage() {
+import WarehousesList from "../../components/WarehousesList/WarehousesList";
+
+
+function WarehousesPage() {
     return (
         <>
-        <h1>Warehouses</h1>
+        <WarehousesList/>
         </>
     )
 }
+
+export default WarehousesPage;
