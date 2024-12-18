@@ -1,1 +1,7 @@
+@use './styles/typography' as *;
 
+body {
+    box-sizing: border-box;
+    font-family: "Titillum Web";
+    font-weight: 400;
+}
