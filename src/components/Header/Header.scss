@@ -1,0 +1,82 @@
+@use "../../styles/typography" as *;
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.header {
+  display: flex;
+  flex-direction: column;
+  background-color: #232940;
+  height: 12.5rem;
+  justify-content: space-around;
+
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+  @include desktop {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  &__logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+
+    &-image1 {
+    }
+    &-image2 {
+      display: none;
+      width: 8rem;
+      height: 1.75rem;
+      top: 1.5rem;
+      left: 7.5rem;
+      gap: 0px;
+      opacity: 0px;
+      position: absolute;
+    }
+  }
+  &__nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+
+    @include desktop {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    @include tablet {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    &-link1 {
+      position: relative;
+      text-decoration: none;
+      color: white;
+      border-radius: 1rem;
+      border: 1px solid #13182c;
+      background-color: #13182c;
+      padding: 0.5rem 0.5rem;
+      &:hover {
+        text-decoration: underline;
+        color: white;
+      }
+    }
+    &-link2 {
+      position: relative;
+      text-decoration: none;
+      color: white;
+      padding: 0.5rem 0.5rem;
+      &:hover {
+        text-decoration: underline;
+        color: white;
+      }
+    }
+  }
+}
