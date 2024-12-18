@@ -20,7 +20,7 @@ export default function Header() {
               Inventory
             </Link>
           
-     
+
       </div>
     </header>
   );
