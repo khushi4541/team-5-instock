@@ -5,7 +5,6 @@
   src: url(./assets/fonts/TitilliumWeb-Regular.woff) format("woff"),
     url(./assets/fonts/TitilliumWeb-Regular.woff2) format("woff2");
   font-weight: 400;
-  font-style: normal;
 }
 
 @font-face {
@@ -13,7 +12,6 @@
   src: url(./assets/fonts/TitilliumWeb-SemiBold.woff) format("woff"),
     url(./assets/fonts/TitilliumWeb-SemiBold.woff2) format("woff2");
   font-weight: 600;
-  font-style: bold;
 }
 
 h1 {
@@ -54,7 +52,7 @@ h3 {
 
 h4 {
   font-family: "Titillium Web";
-  font-weight: 400;
+  font-weight: 600;
   font-size: 0.688rem;
   line-height: 1rem;
 
