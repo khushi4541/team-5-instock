@@ -4,20 +4,24 @@
 
 .warehouses {
   padding: 1rem 0;
-  width: 95%;
+  width: 91%;
   margin: 5rem auto 1rem auto;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   background-color: white;
+  position: relative;
+  bottom: 10.938rem;
+  margin-bottom: -10.938rem;
 
   @include tablet {
     width: 92%;
-    margin-bottom: 3rem;
+    bottom: 11.25rem;
+    margin-bottom: -8.5rem;
   }
 
   @include desktop {
     width: 80%;
-    margin-bottom: 4rem;
+    margin-bottom: -8rem;
   }
 
   &__header {
@@ -34,10 +38,11 @@
       align-items: center;
       justify-content: flex-end;
       width: 55%;
+      gap: 1rem;
     }
 
     @include desktop {
-        width: 50%;
+      width: 50%;
     }
   }
 
@@ -58,22 +63,8 @@
   }
 
   &__input {
-    height: 1.85rem;
-    border-radius: 20px;
+    @include input-box;
     width: 98%;
-    border: 1px solid $border-color;
-    padding: none;
-
-    &::placeholder {
-      font-family: "Titillium Web";
-      font-weight: 400;
-      font-size: 0.813rem;
-      padding-left: 1rem;
-    }
-
-    @include tablet {
-      height: 2.15rem;
-    }
   }
 
   &__icon {
