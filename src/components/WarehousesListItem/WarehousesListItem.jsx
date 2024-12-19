@@ -5,7 +5,7 @@ function WarehousesListItem({ data }) {
     <article className="item">
       <div className="item__details">
         <div className="item__location">
-          <p className="item__label">WAREHOUSE</p>
+          <h4 className="item__label">WAREHOUSE</h4>
           <div className="item__warehouse">
             <p className="item__place">{data.warehouse_name}</p>
             <svg
@@ -22,15 +22,17 @@ function WarehousesListItem({ data }) {
               />
             </svg>
           </div>
-          <p className="item__label">ADDRESS</p>
+          <h4 className="item__label">ADDRESS</h4>
           <p className="item__info">{`${data.address}, ${data.city}, ${data.country}`}</p>
         </div>
         <div className="item__contact">
-          <p className="item__label">CONTACT NAME</p>
+          <h4 className="item__label">CONTACT NAME</h4>
           <p className="item__info">{data.contact_name}</p>
-          <p className="item__label">CONTACT INFORMATION</p>
-          <p className="item__info item__info--phone">{data.contact_phone}</p>
-          <p className="item__info">{data.contact_email}</p>
+          <h4 className="item__label">CONTACT INFORMATION</h4>
+          <div className="item__contact-info">
+            <p className="item__info item__info--phone">{data.contact_phone}</p>
+            <p className="item__info">{data.contact_email}</p>
+          </div>
         </div>
       </div>
       <div className="item__icons">

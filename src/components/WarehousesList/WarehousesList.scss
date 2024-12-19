@@ -76,6 +76,39 @@
     @include tablet {
       width: 50%;
       margin-left: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__headings {
+    display: none;
+
+    @include tablet {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr); 
+        align-items: center; 
+        gap: 1.5rem;
+        padding: 0.5rem 2rem;
+        background-color: $page-background;
+    }
+  }
+
+  &__heading {
+    display: flex;
+    align-items: center;
+  }
+
+  &__sort {
+    height: 1rem;
+    padding-left: 0.25rem;
+  }
+
+  &__label {
+    margin: 0;
+    color: $header-color;
+
+    &--actions {
+        text-align: end;
     }
   }
 }
