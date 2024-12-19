@@ -1,0 +1,58 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+@use "../../styles/typography" as *;
+
+.item {
+  border-top: 1px solid $border-color;
+  padding: 1rem 1.5rem;
+
+  &__details {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__location {
+    @include flex-column;
+    padding-right: 1rem;
+    width: 50%;
+  }
+
+  &__contact {
+    @include flex-column;
+    padding-left: 1rem;
+    width: 50%;
+  }
+
+  &__warehouse {
+    display: flex;
+    align-items: center;
+  }
+
+  &__place {
+    color: $interactive-elements;
+    font-weight: 600;
+    margin-top: 0;
+  }
+
+  &__arrow {
+    align-self: flex-start;
+  }
+
+  &__label {
+    margin: 0;
+    color: $header-color;
+  }
+
+  &__info {
+    margin-top: 0;
+
+    &--phone {
+      margin-bottom: 0;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: space-between;
+  }
+}

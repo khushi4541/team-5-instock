@@ -1,12 +1,11 @@
 import WarehousesList from "../../components/WarehousesList/WarehousesList";
 
-
 function WarehousesPage() {
-    return (
-        <>
-        <WarehousesList/>
-        </>
-    )
+  return (
+    <>
+      <WarehousesList />
+    </>
+  );
 }
 
 export default WarehousesPage;

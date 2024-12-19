@@ -1,10 +1,27 @@
+import "./WarehousesListItem.scss";
+
 function WarehousesListItem({ data }) {
   return (
     <article className="item">
       <div className="item__details">
         <div className="item__location">
           <p className="item__label">WAREHOUSE</p>
-          <p className="item__place">{data.warehouse_name}</p>
+          <div className="item__warehouse">
+            <p className="item__place">{data.warehouse_name}</p>
+            <svg
+              className="item__arrow"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.99997 6L8.58997 7.41L13.17 12L8.58997 16.59L9.99997 18L16 12L9.99997 6Z"
+                fill="#2E66E6"
+              />
+            </svg>
+          </div>
           <p className="item__label">ADDRESS</p>
           <p className="item__info">{`${data.address}, ${data.city}, ${data.country}`}</p>
         </div>
@@ -12,6 +29,7 @@ function WarehousesListItem({ data }) {
           <p className="item__label">CONTACT NAME</p>
           <p className="item__info">{data.contact_name}</p>
           <p className="item__label">CONTACT INFORMATION</p>
+          <p className="item__info item__info--phone">{data.contact_phone}</p>
           <p className="item__info">{data.contact_email}</p>
         </div>
       </div>
