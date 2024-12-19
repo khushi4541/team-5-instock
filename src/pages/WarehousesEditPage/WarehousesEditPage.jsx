@@ -1,7 +1,11 @@
+import EditWarehouse from "../../components/EditWarehouse/EditWarehouse";
+
 export default function WarehousesEditPage() {
     return (
         <>
-        <h1>Warehouse Title</h1>
+        <main>
+            <EditWarehouse />
+        </main>
         </>
     )
 }
