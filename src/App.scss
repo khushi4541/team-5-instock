@@ -1,9 +1,11 @@
 @use './styles/typography' as *;
 @use './styles/variables' as *;
 
+
 body {
     box-sizing: border-box;
     font-family: "Titillum Web";
     font-weight: 400;
     color: $text-color;
+    background-color: $page-background;
 }

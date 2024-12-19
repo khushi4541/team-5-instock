@@ -1,7 +1,7 @@
 export default function WarehousesDetailsPage() {
     return (
         <>
-        <h1>Edit Warehouse</h1>
+        <h1>Warehouse Details</h1>
         </>
     )
 }

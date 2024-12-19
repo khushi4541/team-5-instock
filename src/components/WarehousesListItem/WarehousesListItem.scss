@@ -47,6 +47,12 @@
   &__warehouse {
     display: flex;
     align-items: center;
+    @include reset-link-styling;
+
+    &:hover {
+        text-decoration: underline;
+        color: $interactive-elements;
+    }
   }
 
   &__place {

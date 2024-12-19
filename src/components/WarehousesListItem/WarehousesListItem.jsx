@@ -1,4 +1,5 @@
 import "./WarehousesListItem.scss";
+import { Link } from "react-router-dom";
 
 function WarehousesListItem({ data }) {
   return (
@@ -6,7 +7,7 @@ function WarehousesListItem({ data }) {
       <div className="item__details">
         <div className="item__location">
           <h4 className="item__label">WAREHOUSE</h4>
-          <div className="item__warehouse">
+          <Link to={`/warehouses/${data.id}`} className="item__warehouse">
             <p className="item__place">{data.warehouse_name}</p>
             <svg
               className="item__arrow"
@@ -21,7 +22,7 @@ function WarehousesListItem({ data }) {
                 fill="#2E66E6"
               />
             </svg>
-          </div>
+            </Link>
           <h4 className="item__label">ADDRESS</h4>
           <p className="item__info">{`${data.address}, ${data.city}, ${data.country}`}</p>
         </div>
