@@ -1,18 +1,18 @@
-@use '../../styles/typography' as *;
-@use '../../styles/variables' as *;
-@use '../../styles/mixins' as *;
+@use "../../styles/typography" as *;
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
 
 .footer {
-    display: flex;
-    justify-content: center;
-    padding: 1rem;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
 
-    &__text {
-        color: $header-color;
-        font-size: 0.688rem;
+  &__text {
+    color: $header-color;
+    font-size: 0.688rem;
 
-        @include tablet {
-            font-size: 0.75rem;
-        }
+    @include tablet {
+      font-size: 0.75rem;
     }
+  }
 }
