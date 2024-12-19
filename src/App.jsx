@@ -9,11 +9,13 @@ import InventoryDetailsPage from "./pages/InventoryDetailsPage/InventoryDetailsP
 import InventoryEditPage from "./pages/InventoryEditPage/InventoryEditPage";
 import InventoryAddPage from "./pages/InventoryAddPage/InventoryAddPage";
 import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
 
 function App() {
   return (
     <BrowserRouter>
       <>
+        <Header />
         <Routes>
           <Route path="/warehouses" element={<WarehousesPage />} />
           {/* We may set up a redirect from / to /warehouses - tbd */}
