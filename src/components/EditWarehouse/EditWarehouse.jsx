@@ -1,6 +1,6 @@
 import "./EditWarehouse.scss";
 import { useNavigate, useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function EditWarehouse() {
@@ -21,6 +21,22 @@ export default function EditWarehouse() {
 
 	// State for errors
 	const [errors, setErrors] = useState({});
+
+	// Fetch warehouse data when the component loads
+	useEffect(() => {
+		const fetchWarehouse = async () => {
+			try {
+				const response = await axios.get(
+					`http://localhost:3030/warehouses/${id}`
+				);
+				// Populate the form with the fetched data
+				setFormData(response.data);
+			} catch (error) {
+				console.error("Error fetching warehouse data:", error);
+			}
+		};
+			fetchWarehouse();
+		}, [id]);
 
 	// Function to handle input changes
 	const handleInputChange = (e) => {
@@ -83,7 +99,7 @@ export default function EditWarehouse() {
 	};
 
 	return (
-		<div className="edit-warehouse">
+		<section className="edit-warehouse">
 			<header className="edit-warehouse__header">
 				<button
 					className="edit-warehouse__back-button"
@@ -96,23 +112,21 @@ export default function EditWarehouse() {
 						fill="none"
 						xmlns="http://www.w3.org/2000/svg"
 					>
-						<path
-							d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z"
-							fill="#2E66E6"
-						/>
+						<path d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z" />
 					</svg>
 				</button>
 				<h1 className="edit-warehouse__title">Edit Warehouse</h1>
 			</header>
+			<div className="edit-warehouse__divider"></div>
 			<form className="edit-warehouse__form" onSubmit={handleSubmit}>
 				<div className="edit-warehouse__section">
-					<div className="edit-warehouse__section-title">
+					<h2 className="edit-warehouse__section-title">
 						Warehouse Details
-					</div>
+					</h2>
 					<div className="edit-warehouse__form-group">
-						<div className="edit-warehouse__label">
+						<h3 className="edit-warehouse__label">
 							Warehouse Name
-						</div>
+						</h3>
 						<input
 							type="text"
 							className="edit-warehouse__input"
@@ -122,9 +136,9 @@ export default function EditWarehouse() {
 						/>
 					</div>
 					<div className="edit-warehouse__form-group">
-						<div className="edit-warehouse__label">
+						<h3 className="edit-warehouse__label">
 							Street Address
-						</div>
+						</h3>
 						<input
 							type="text"
 							className="edit-warehouse__input"
@@ -134,7 +148,7 @@ export default function EditWarehouse() {
 						/>
 					</div>
 					<div className="edit-warehouse__form-group">
-						<div className="edit-warehouse__label">City</div>
+						<h3 className="edit-warehouse__label">City</h3>
 						<input
 							type="text"
 							className="edit-warehouse__input"
@@ -144,7 +158,7 @@ export default function EditWarehouse() {
 						/>
 					</div>
 					<div className="edit-warehouse__form-group">
-						<div className="edit-warehouse__label">Country</div>
+						<h3 className="edit-warehouse__label">Country</h3>
 						<input
 							type="text"
 							className="edit-warehouse__input"
@@ -154,14 +168,13 @@ export default function EditWarehouse() {
 						/>
 					</div>
 				</div>
+				<div className="edit-warehouse__separator"></div>
 				<div className="edit-warehouse__section">
-					<div className="edit-warehouse__section-title">
+					<h2 className="edit-warehouse__section-title">
 						Contact Details
-					</div>
+					</h2>
 					<div className="edit-warehouse__form-group">
-						<div className="edit-warehouse__label">
-							Contact Name
-						</div>
+						<h3 className="edit-warehouse__label">Contact Name</h3>
 						<input
 							type="text"
 							className="edit-warehouse__input"
@@ -171,7 +184,7 @@ export default function EditWarehouse() {
 						/>
 					</div>
 					<div className="edit-warehouse__form-group">
-						<div className="edit-warehouse__label">Position</div>
+						<h3 className="edit-warehouse__label">Position</h3>
 						<input
 							type="text"
 							className="edit-warehouse__input"
@@ -181,9 +194,7 @@ export default function EditWarehouse() {
 						/>
 					</div>
 					<div className="edit-warehouse__form-group">
-						<div className="edit-warehouse__label">
-							Phone Number
-						</div>
+						<h3 className="edit-warehouse__label">Phone Number</h3>
 						<input
 							type="text"
 							className="edit-warehouse__input"
@@ -193,7 +204,7 @@ export default function EditWarehouse() {
 						/>
 					</div>
 					<div className="edit-warehouse__form-group">
-						<div className="edit-warehouse__label">Email</div>
+						<h3 className="edit-warehouse__label">Email</h3>
 						<input
 							type="email"
 							className="edit-warehouse__input"
@@ -216,6 +227,6 @@ export default function EditWarehouse() {
 					</button>
 				</div>
 			</form>
-		</div>
+		</section>
 	);
 }
