@@ -230,7 +230,7 @@ export default function EditWarehouse() {
 				<button
 					type="submit"
 					className="edit-warehouse__save"
-					form="edit-warehouse-form" // Links the button to the form
+					form="edit-warehouse-form"
 				>
 					Save
 				</button>
