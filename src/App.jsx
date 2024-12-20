@@ -1,5 +1,5 @@
 import "./App.scss";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import WarehousesPage from "./pages/WarehousesPage/WarehousesPage";
 import WarehousesDetailsPage from "./pages/WarehousesDetailsPage/WarehousesDetailsPage";
 import WarehousesEditPage from "./pages/WarehousesEditPage/WarehousesEditPage";
@@ -16,8 +16,9 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
+        {/* Redirect from "/" to "/warehouses" */}
+        <Route path="/" element={<Navigate to="/warehouses" replace />} />
         <Route path="/warehouses" element={<WarehousesPage />} />
-        {/* We may set up a redirect from / to /warehouses - tbd */}
         <Route path="/warehouses/:id" element={<WarehousesDetailsPage />} />
         <Route path="/warehouses/:id/edit" element={<WarehousesEditPage />} />
         <Route path="/warehouses/add" element={<WarehousesAddPage />} />
