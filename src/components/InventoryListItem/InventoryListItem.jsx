@@ -35,9 +35,11 @@ function InventoryListitems({ inventories }) {
         </div>
         <div className="items__status">
           <h4 className="items__label">Status</h4>
-          <p className={`items__status-tag ${statusClass}`}>
-            {inventories.status}
-          </p>
+          <div className="items__status-div">
+            <p className={`items__status-tag ${statusClass}`}>
+              {inventories.status}
+            </p>
+          </div>
           <h4 className="items__label">QTY</h4>
           <p className="items__info">{inventories.quantity}</p>
           <h4 className="items__label">Warehouse</h4>
