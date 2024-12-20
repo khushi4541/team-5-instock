@@ -1,5 +1,7 @@
 import "./EditWarehouse.scss";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
 
 export default function EditWarehouse() {
 	const navigate = useNavigate();
