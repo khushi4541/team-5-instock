@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
-import { baseURL } from "../../../utils/api";
+import { baseURL } from "../../utils/api";
 import axios from "axios";
 import "./WarehousesList.scss";
 import WarehousesListItem from "../WarehousesListItem/WarehousesListItem";
 
-function WarehousesList() {
-  const [warehouses, setWarehouses] = useState([]);
+function WarehousesList({ handleDeleteClick }) {
+  const [warehousesData, setWarehousesData] = useState([]);
 
   useEffect(() => {
     const fetchWarehouses = async () => {
       const url = `${baseURL}/warehouses/`;
       try {
         const response = await axios.get(url);
-        setWarehouses(response.data);
+        setWarehousesData(response.data);
       } catch (error) {
         console.error(error);
       }
@@ -50,7 +50,8 @@ function WarehousesList() {
       <div className="warehouses__headings">
         <div className="warehouses__heading">
           <h4 className="warehouses__label">WAREHOUSE</h4>
-          <svg className="warehouses__sort"
+          <svg
+            className="warehouses__sort"
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +64,8 @@ function WarehousesList() {
         </div>
         <div className="warehouses__heading">
           <h4 className="warehouses__label">ADDRESS</h4>
-          <svg className="warehouses__sort"
+          <svg
+            className="warehouses__sort"
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +78,8 @@ function WarehousesList() {
         </div>
         <div className="warehouses__heading">
           <h4 className="warehouses__label">CONTACT NAME</h4>
-          <svg className="warehouses__sort"
+          <svg
+            className="warehouses__sort"
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +92,8 @@ function WarehousesList() {
         </div>
         <div className="warehouses__heading">
           <h4 className="warehouses__label">CONTACT INFORMATION</h4>
-          <svg className="warehouses__sort"
+          <svg
+            className="warehouses__sort"
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -100,11 +104,13 @@ function WarehousesList() {
             />
           </svg>
         </div>
-        <h4 className="warehouses__label warehouses__label--actions">ACTIONS</h4>
+        <h4 className="warehouses__label warehouses__label--actions">
+          ACTIONS
+        </h4>
       </div>
       <div className="warehouses__list">
-        {warehouses.map((data) => (
-          <WarehousesListItem key={data.id} data={data} />
+        {warehousesData.map((warehouse) => (
+          <WarehousesListItem key={warehouse.id} warehouse={warehouse} handleDeleteClick={handleDeleteClick} />
         ))}
       </div>
     </section>
