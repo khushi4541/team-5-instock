@@ -3,18 +3,41 @@
 @use "../../styles/typography" as *;
 
 .modal {
-    width: 84%;
-    background-color: white;
-    margin: 2rem auto;
-    padding: 1rem;
+  background-color: white;
+  margin: 2rem auto;
+  padding: 1rem;
+  height: 70vh;
+  width: 80%;
+  @include flex-column;
+  justify-content: space-between;
 
-    &__body {
-        @include flex-column;
+  &__body {
+    @include flex-column;
+    height: 100%;
+  }
 
-    }
+  &__close {
+    align-self: flex-end;
+  }
 
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
 
-    &__close {
-        align-self: flex-end;
-    }
+  &__cancel {
+    width: 50%;
+    @include secondary-button;
+  }
+
+  &__delete {
+    width: 50%;
+    @include delete-button;
+  }
+
+  &__message {
+    font-size: 0.938rem;
+    line-height: 1.625rem;
+  }
 }

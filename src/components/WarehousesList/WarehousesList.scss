@@ -79,7 +79,7 @@
   }
 
   &__button {
-    @include button-blue;
+    @include primary-button;
     width: 100%;
     margin: 1rem 0 2rem 0;
 

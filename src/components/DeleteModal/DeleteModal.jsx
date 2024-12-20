@@ -1,6 +1,12 @@
 import "./DeleteModal.scss";
 
-function DeleteModal({ message, heading, showModal, handleCloseModal, handleConfirmDelete }) {
+function DeleteModal({
+  message,
+  heading,
+  showModal,
+  handleCloseModal,
+  handleConfirmDelete,
+}) {
   if (!showModal) {
     return;
   }
@@ -24,10 +30,14 @@ function DeleteModal({ message, heading, showModal, handleCloseModal, handleConf
         </svg>
         <h1 className="modal__heading">{heading}</h1>
         <p className="modal__messaage">{message}</p>
-        <div className="modal__buttons">
-          <button className="modal__cancel" onClick={handleCloseModal}>Cancel</button>
-          <button className="modal__delete" onClick={handleConfirmDelete}>Delete</button>
-        </div>
+      </div>
+      <div className="modal__buttons">
+        <button className="modal__cancel" onClick={handleCloseModal}>
+          Cancel
+        </button>
+        <button className="modal__delete" onClick={handleConfirmDelete}>
+          Delete
+        </button>
       </div>
     </article>
   );
