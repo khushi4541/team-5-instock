@@ -36,9 +36,9 @@ function WarehousesListItem({ warehouse, handleDeleteClick }) {
           </div>
         </div>
       </div>
-      <div className="item__icons">
+      <div className="item__icons" >
         <svg
-          onClick={handleDeleteClick}
+          onClick={()=>{handleDeleteClick(warehouse)}}
           className="item__icon"
           width="24"
           height="24"
