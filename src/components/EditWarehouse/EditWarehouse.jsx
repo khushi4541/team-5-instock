@@ -35,8 +35,8 @@ export default function EditWarehouse() {
 				console.error("Error fetching warehouse data:", error);
 			}
 		};
-			fetchWarehouse();
-		}, [id]);
+		fetchWarehouse();
+	}, [id]);
 
 	// Function to handle input changes
 	const handleInputChange = (e) => {
@@ -118,7 +118,11 @@ export default function EditWarehouse() {
 				<h1 className="edit-warehouse__title">Edit Warehouse</h1>
 			</header>
 			<div className="edit-warehouse__divider"></div>
-			<form className="edit-warehouse__form" onSubmit={handleSubmit}>
+			<form
+				id="edit-warehouse-form"
+				className="edit-warehouse__form"
+				onSubmit={handleSubmit}
+			>
 				<div className="edit-warehouse__section">
 					<h2 className="edit-warehouse__section-title">
 						Warehouse Details
@@ -214,19 +218,23 @@ export default function EditWarehouse() {
 						/>
 					</div>
 				</div>
-				<div className="edit-warehouse__actions">
-					<button
-						type="button"
-						className="edit-warehouse__cancel"
-						onClick={handleBack}
-					>
-						Cancel
-					</button>
-					<button type="submit" className="edit-warehouse__save">
-						Save
-					</button>
-				</div>
 			</form>
+			<div className="edit-warehouse__actions">
+				<button
+					type="button"
+					className="edit-warehouse__cancel"
+					onClick={handleBack}
+				>
+					Cancel
+				</button>
+				<button
+					type="submit"
+					className="edit-warehouse__save"
+					form="edit-warehouse-form" // Links the button to the form
+				>
+					Save
+				</button>
+			</div>
 		</section>
 	);
 }
