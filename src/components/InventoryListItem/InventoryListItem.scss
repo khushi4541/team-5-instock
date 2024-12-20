@@ -45,6 +45,10 @@
     }
     &-div {
       margin-block-end: 1em;
+
+      @include tablet {
+        margin: 0;
+      }
     }
     &-tag {
       display: inline;
