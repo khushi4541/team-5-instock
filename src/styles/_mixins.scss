@@ -10,6 +10,7 @@
   padding: 0 1rem;
   background-color: $interactive-elements;
   color: white;
+  cursor: pointer;
 
   &:hover {
     background-color: $nav-background;
@@ -29,6 +30,7 @@
   font-family: "Titillium Web";
   font-weight: 400;
   font-size: 0.813rem;
+  cursor: pointer;
 
   &:hover {
     border-color: $interactive-elements;
@@ -50,6 +52,7 @@
   font-family: "Titillium Web";
   font-weight: 400;
   font-size: 0.813rem;
+  cursor: pointer;
 
   &:hover {
     background-color: $nav-background;

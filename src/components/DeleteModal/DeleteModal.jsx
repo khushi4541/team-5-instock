@@ -30,7 +30,7 @@ function DeleteModal({
             />
           </svg>
           <h1 className="modal__heading">{heading}</h1>
-          <p className="modal__messaage">{message}</p>
+          <p className="modal__message">{message}</p>
         </div>
         <div className="modal__buttons">
           <button className="modal__cancel" onClick={handleCloseModal}>
