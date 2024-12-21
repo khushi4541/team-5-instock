@@ -50,10 +50,10 @@ function InventoriescardDetails() {
               />
             </svg>
           </Link>
-          <p className="card__name">{inventories.item_name}</p>
+          <h1 className="card__name">{inventories.item_name}</h1>
         </div>
         <button
-          className="card__header-edit"
+          className="card__headeredit"
           onClick={() => navigate(`/inventories/${id}/edit`)}
         >
           <svg

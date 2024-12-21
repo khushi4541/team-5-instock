@@ -31,10 +31,7 @@
     @include tablet {
       display: flex;
       justify-content: space-between;
-    }
-    @include desktop {
-      display: flex;
-      justify-content: space-between;
+      align-items: center;
       width: 90%;
     }
   }
@@ -42,6 +39,9 @@
   &__selected {
     display: flex;
     align-items: center;
+    @include tablet {
+      gap: 0.5rem;
+    }
   }
   &__details {
     @include desktop {
@@ -67,6 +67,26 @@
       justify-content: space-evenly;
       width: 50%;
       flex-direction: row;
+    }
+  }
+  &__headeredit {
+    display: flex;
+    border-radius: 20px;
+    border: 1px solid $border-color;
+    padding: 0.5rem 1rem;
+    background-color: #2e66e5;
+    font-family: "Titillium Web";
+    font-weight: 400;
+    font-size: 0.813rem;
+    color: white;
+
+    &:hover {
+      border-color: $interactive-elements;
+    }
+
+    @include tablet {
+      height: 2.375rem;
+      font-size: 0.875rem;
     }
   }
 }
