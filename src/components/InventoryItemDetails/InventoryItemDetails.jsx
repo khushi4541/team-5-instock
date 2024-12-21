@@ -1,9 +1,31 @@
 import "./InventoryItemDetails.scss";
-import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { baseURL } from "../../../utils/api";
 
-function InventoryItemDetails({ getInventoryById }) {
+function InventoriesItemDetails() {
+  const { id } = useParams();
+
+  const [inventories, setinventories] = useState(null);
+
+  useEffect(() => {
+    const fetchinventories = async () => {
+      const url = `${baseURL}/inventories/${id}`;
+      try {
+        const response = await axios.get(url);
+        setinventories(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchinventories();
+  }, [id]);
+
+  if (!inventories) {
+    return <div>Item not found</div>;
+  }
+
   const statusClass =
-    getInventoryById.status.toLowerCase() === "in stock"
+    inventoryId.status.toLowerCase() === "in stock"
       ? "items__status-tag--in-stock"
       : "items__status-tag--out-of-stock";
 
@@ -11,7 +33,7 @@ function InventoryItemDetails({ getInventoryById }) {
     <article className="item">
       <div className="item__header">
         <div className="item__selected">
-          <Link to="/inventory" className="item__back-link">
+          <Link to="/inventories" className="item__back-link">
             <svg
               className="item__arrow"
               width="24"
@@ -26,7 +48,7 @@ function InventoryItemDetails({ getInventoryById }) {
               />
             </svg>
           </Link>
-          <p className="item__name">{getInventoryById.item_name}</p>
+          <p className="item__name">{inventoryId.item_name}</p>
         </div>
         <button className="item__edit-button">Edit</button>
       </div>
@@ -34,24 +56,24 @@ function InventoryItemDetails({ getInventoryById }) {
       <div className="item__details">
         <div className="item__info-group">
           <h4 className="item__label">Item Description</h4>
-          <p className="item__info">{getInventoryById.description}</p>
+          <p className="item__info">{inventoryId.description}</p>
           <h4 className="item__label">Category</h4>
-          <p className="item__info">{getInventoryById.category}</p>
+          <p className="item__info">{inventoryId.category}</p>
         </div>
 
         <div className="item__info-group">
           <h4 className="item__label">Status</h4>
           <p className={`item__status-tag ${statusClass}`}>
-            {getInventoryById.status}
+            {inventoryId.status}
           </p>
           <h4 className="item__label">QTY</h4>
-          <p className="item__info">{getInventoryById.quantity}</p>
+          <p className="item__info">{inventoryId.quantity}</p>
           <h4 className="item__label">Warehouse</h4>
-          <p className="item__info">{getInventoryById.warehouse_name}</p>
+          <p className="item__info">{inventoryId.warehouse_name}</p>
         </div>
       </div>
     </article>
   );
 }
 
-export default InventoryItemDetails;
+export default inventoriesItemDetails;
