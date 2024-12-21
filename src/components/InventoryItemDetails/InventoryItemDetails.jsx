@@ -4,27 +4,27 @@ import axios from "axios";
 import "./InventoryItemDetails.scss";
 import { baseURL } from "../../../utils/api";
 
-function InventoriesItemDetails() {
+function InventoriescardDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [inventories, setinventories] = useState(null);
+  const [inventories, setInventories] = useState(null);
 
   useEffect(() => {
-    const fetchinventories = async () => {
+    const fetchInventories = async () => {
       const url = `${baseURL}/inventories/${id}`;
       try {
         const response = await axios.get(url);
-        setinventories(response.data);
+        setInventories(response.data);
       } catch (error) {
-        console.error("Error fetching inventories details:", error);
+        console.error("Error fetching inventory details:", error);
       }
     };
 
-    fetchinventories();
+    fetchInventories();
   }, [id]);
 
   if (!inventories) {
-    return <div>Loading... or Item not found</div>;
+    return <div>Loading... or item not found</div>;
   }
 
   const statusClass =
@@ -33,12 +33,11 @@ function InventoriesItemDetails() {
       : "items__status-tag--out-of-stock";
 
   return (
-    <article className="item">
-      <div className="item__header">
-        <div className="item__selected">
-          <Link to="/inventories" className="item__back-link">
+    <article className="card">
+      <div className="card__header">
+        <div className="card__selected">
+          <Link to="/inventories" className="card__back-link">
             <svg
-              className="item__arrow"
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -46,46 +45,58 @@ function InventoriesItemDetails() {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M9 6L10.41 7.41L5.83 12L10.41 16.59L9 18L3 12L9 6Z"
+                d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z"
                 fill="#2E66E6"
               />
             </svg>
           </Link>
-          <p className="item__name">{inventories.item_name}</p>
+          <p className="card__name">{inventories.item_name}</p>
         </div>
         <button
-          className="item__edit-button"
+          className="card__header-edit"
           onClick={() => navigate(`/inventories/${id}/edit`)}
         >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3 17.25V21H6.75L17.81 9.94L14.06 6.19L3 17.25ZM20.71 7.04C21.1 6.65 21.1 6.02 20.71 5.63L18.37 3.29C17.98 2.9 17.35 2.9 16.96 3.29L15.13 5.12L18.88 8.87L20.71 7.04V7.04Z"
+              fill="#FFFFFF"
+            />
+          </svg>
           Edit
         </button>
       </div>
 
-      <div className="item__details">
-        <div className="item__infogroup">
-          <h4 className="item__label">
-            Item Description:{inventories.description}
-          </h4>
-          <p className="item__info">{inventories.description}</p>
-          <h4 className="item__label">Category</h4>
-          <p className="item__info">{inventories.category}</p>
+      <div className="card__details">
+        <div className="card__infogroup">
+          <div><h4 className="card__label">Item Description:</h4>
+          <p className="card__info">{inventories.description}</p></div>
+          <div><h4 className="card__label">Category</h4>
+          <p className="card__info">{inventories.category}</p></div>
         </div>
 
-        <div className="item__info-group">
-          <div className="item__quantity">
-            <h4 className="item__label">Status</h4>
-            <p className={`item__status-tag ${statusClass}`}>
+        <div className="card__ingroup">
+          <div className="card__quantity">
+            <h4 className="card__label">Status</h4>
+            <p className={`card__status-tag ${statusClass}`}>
               {inventories.status}
             </p>
-            <h4 className="item__label">Warehouse</h4>
-            <p className="item__info">{inventories.warehouse_name}</p>
+            <h4 className="card__label">Warehouse</h4>
+            <p className="card__info">{inventories.warehouse_name}</p>
           </div>
-          <h4 className="item__label">QTY</h4>
-          <p className="item__info">{inventories.quantity}</p>
+          <div>
+          <h4 className="card__label">QTY</h4>
+          <p className="card__info">{inventories.quantity}</p>
+        </div>
         </div>
       </div>
     </article>
   );
 }
 
-export default InventoriesItemDetails;
+export default InventoriescardDetails;
