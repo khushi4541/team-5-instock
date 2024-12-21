@@ -4,7 +4,8 @@ import axios from "axios";
 import "./InventoryItemDetails.scss";
 import { baseURL } from "../../../utils/api";
 
-function InventoriesItemDetails({ id }) {
+function InventoriesItemDetails() {
+  const { id } = useParams();
   const navigate = useNavigate();
   const [inventories, setinventories] = useState(null);
 
@@ -16,7 +17,6 @@ function InventoriesItemDetails({ id }) {
         setinventories(response.data);
       } catch (error) {
         console.error("Error fetching inventories details:", error);
-        alert("Failed to fetch inventory details. Please try again later."); // Improved error handling
       }
     };
 
@@ -28,7 +28,7 @@ function InventoriesItemDetails({ id }) {
   }
 
   const statusClass =
-    inventory.status.toLowerCase() === "in stock"
+    inventories.status.toLowerCase() === "in stock"
       ? "items__status-tag--in-stock"
       : "items__status-tag--out-of-stock";
 
@@ -63,7 +63,9 @@ function InventoriesItemDetails({ id }) {
 
       <div className="item__details">
         <div className="item__infogroup">
-          <h4 className="item__label">Item Description</h4>
+          <h4 className="item__label">
+            Item Description:{inventories.description}
+          </h4>
           <p className="item__info">{inventories.description}</p>
           <h4 className="item__label">Category</h4>
           <p className="item__info">{inventories.category}</p>
