@@ -71,17 +71,26 @@ function InventoriescardDetails() {
           Edit
         </button>
       </div>
-
+      <div className="card__divider"></div>
       <div className="card__details">
         <div className="card__infogroup">
-          <div><h4 className="card__label">Item Description:</h4>
-          <p className="card__info">{inventories.description}</p></div>
-          <div><h4 className="card__label">Category</h4>
-          <p className="card__info">{inventories.category}</p></div>
+          <div className="card__container">
+          <div>
+            <h4 className="card__label">Item Description:</h4>
+            <p className="card__info">{inventories.description}</p>
+          </div>
+          <div>
+            <h4 className="card__label">Category</h4>
+            <p className="card__info">{inventories.category}</p>
+          </div>
+          </div>
+          <div className="card__divider"></div>
         </div>
-
+      
         <div className="card__ingroup">
+          
           <div className="card__quantity">
+     
             <h4 className="card__label">Status</h4>
             <p className={`card__status-tag ${statusClass}`}>
               {inventories.status}
@@ -90,9 +99,9 @@ function InventoriescardDetails() {
             <p className="card__info">{inventories.warehouse_name}</p>
           </div>
           <div>
-          <h4 className="card__label">QTY</h4>
-          <p className="card__info">{inventories.quantity}</p>
-        </div>
+            <h4 className="card__label">QTY</h4>
+            <p className="card__info">{inventories.quantity}</p>
+          </div>
         </div>
       </div>
     </article>

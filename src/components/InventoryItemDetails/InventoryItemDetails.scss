@@ -18,6 +18,7 @@
     width: 92%;
     bottom: 11.25rem;
     margin-bottom: -8.5rem;
+    padding: 0;
   }
   @include desktop {
     width: 80%;
@@ -35,6 +36,11 @@
       width: 90%;
     }
   }
+&__divider{
+    height: 1px;
+    background-color: #BDC5D5;
+    width: 100%;
+}
 
   &__selected {
     display: flex;
@@ -49,6 +55,7 @@
       justify-content: space-between;
       align-items: flex-start;
       width: 90%;
+      padding: 24px;
     }
   }
   &__infogroup {
