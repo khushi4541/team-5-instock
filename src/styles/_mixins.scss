@@ -64,6 +64,67 @@
   }
 }
 
+@mixin primary-button {
+  border-radius: 20px;
+  height: 2.25rem;
+  border: none;
+  font-family: "Titillium Web";
+  font-weight: 400;
+  font-size: 0.813rem;
+  padding: 0 1rem;
+  background-color: $interactive-elements;
+  color: white;
+
+  &:hover {
+    background-color: $nav-background;
+  }
+
+  @include tablet {
+    height: 2.375rem;
+    font-size: 0.875rem;
+  }
+}
+
+@mixin secondary-button {
+  border-radius: 20px;
+  border: 1px solid $border-color;
+  padding: 0.5rem 1rem;
+  background-color: white;
+  font-family: "Titillium Web";
+  font-weight: 400;
+  font-size: 0.813rem;
+
+  &:hover {
+    border-color: $interactive-elements;
+    color: $interactive-elements;
+  }
+
+  @include tablet {
+    height: 2.375rem;
+    font-size: 0.875rem;
+  }
+}
+
+@mixin delete-button {
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background-color: $out-of-stock-label;
+  font-family: "Titillium Web";
+  font-weight: 400;
+  font-size: 0.813rem;
+
+  &:hover {
+    background-color: $nav-background;
+  }
+
+  @include tablet {
+    height: 2.375rem;
+    font-size: 0.875rem;
+  }
+}
+
 @mixin input-box {
   height: 1.85rem;
   border-radius: 20px;
@@ -99,3 +160,4 @@
     @content;
   }
 }
+
