@@ -29,15 +29,13 @@
 	display: flex;
 	align-items: center;
     position: relative;
-    width: 100%;
     padding: 0 1rem;
+
+    @include tablet {
+        border-bottom: 1px solid $border-color;
+    }
 }
 
-.edit-warehouse__divider {
-	height: 1px;
-	background-color: $border-color;
-    width: 100%;
-}
 
 .edit-warehouse__back-button {
 	background: none;
@@ -64,6 +62,19 @@
 
 .edit-warehouse__title {
 	color: $text-color;
+    margin-bottom: 1.15rem;
+
+    @include tablet {
+        margin-bottom: 1rem;
+    }
+}
+
+.edit-warehouse__arrow {
+    padding-top: 0.40rem;
+
+    @include tablet {
+        padding-top: 0.75rem;
+    }
 }
 
 .edit-warehouse__form {
@@ -73,9 +84,15 @@
     margin-bottom: 2rem;
 
     @include tablet {
-        display: flex;
-        flex-direction: row; 
-        gap: 2rem;
+        gap: 1rem;
+    }
+}
+
+.edit-warehouse__content {
+    @include flex-column;
+
+    @include tablet {
+        flex-direction: row;
     }
 }
 
@@ -84,16 +101,33 @@
     display: flex;
     flex-direction: column; 
     padding: 0 1rem;
+    border-top: 1px solid $border-color;
 
     @include tablet {
         flex: 1 1 50%;
+        margin-top: 1.75rem;
+        border: none;
+    }
+
+    &--border {
+        @include tablet {
+            border-left: 1px solid $border-color;
+        }
     }
 }
 
 .edit-warehouse__section-title {
 	color: $text-color;
-    margin: 1rem 0;
+    margin: 1rem 0 0 0;
+    padding-left: 1rem;
+
+    @include tablet {
+        margin-bottom: 1.5rem;
+        margin-top: 0.25rem;
+    }
 }
+
+
 
 .edit-warehouse__form-group {
 	display: flex;
@@ -105,6 +139,11 @@
 .edit-warehouse__label {
 	color: $text-color;
     margin-bottom: 0;
+    margin-top: 1.25rem;
+
+    @include tablet {
+        margin-top:0.75rem;
+    }
 }
 
 .edit-warehouse__input {
@@ -113,24 +152,12 @@
 	@include input-box;
 }
 
-.edit-warehouse__separator {
-	width: 100%;
-	height: 1px;
-	background-color: $border-color;
-	margin: 1rem 0;
-
-	@include tablet {
-		width: 1px;
-		height: auto;
-		background-color: $border-color;
-	}
-}
-
 .edit-warehouse__actions {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    padding: 1rem;
+    gap: 1rem;
+    padding: 1rem 2rem;
     background-color: $page-background;
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
@@ -141,14 +168,10 @@
         align-items: center;
         margin-top: 2rem;
     }
-
-    @include desktop {
-        padding: 2rem;
-    }
 }
 
 .edit-warehouse__cancel {
-    width: 40%;
+    width: 50%;
     @include secondary-button;
 
     @include tablet {
@@ -158,7 +181,7 @@
 }
 
 .edit-warehouse__save {
-    width: 40%;
+    width: 50%;
     @include primary-button;
 
     @include tablet {
