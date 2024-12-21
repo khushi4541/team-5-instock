@@ -2,14 +2,14 @@
 @use "../../styles/variables" as *;
 @use "../../styles/typography" as *;
 
-.item {
+.items {
   border-top: 1px solid $border-color;
   padding: 1rem 1.5rem;
 
   @include tablet {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); 
-    align-items: center; 
+    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
     gap: 1rem;
     padding: 1rem 2rem;
     text-align: left;
@@ -20,7 +20,7 @@
     justify-content: space-between;
 
     @include tablet {
-        display: contents;
+      display: contents;
     }
   }
 
@@ -34,34 +34,67 @@
     }
   }
 
-  &__contact {
+  &__status {
     @include flex-column;
     padding-left: 1rem;
     width: 50%;
+    margin-top: 0;
 
     @include tablet {
-        display: contents;
+      display: contents;
+    }
+    &-div {
+      margin-block-end: 1em;
+
+      @include tablet {
+        margin: 0;
+      }
+    }
+    &-tag {
+      display: inline;
+      height: 1.5rem;
+      padding: 0 0.5rem;
+      font-size: 0.875rem;
+      line-height: 1.625rem;
+      border-radius: 1.25rem;
+      text-align: start;
+      white-space: nowrap;
+      margin-top: 0;
+      @include tablet {
+        height: 1.625rem;
+      }
+
+      &--in-stock {
+        background-color: rgba(21, 132, 99, 0.07);
+        color: #158463;
+        
+      }
+
+      &--out-of-stock {
+        background-color: rgba(201, 69, 21, 0.07);
+        color: #c94515;
+        
+      }
     }
   }
-
-  &__warehouse {
+  &__inventory {
     display: flex;
     align-items: center;
     @include reset-link-styling;
 
     &:hover {
-        text-decoration: underline;
-        color: $interactive-elements;
+      text-decoration: underline;
+      color: $interactive-elements;
     }
   }
 
-  &__place {
+  &__name {
     color: $interactive-elements;
     font-weight: 600;
     margin-top: 0;
 
     @include tablet {
-        margin: 0;
+      margin: 0;
     }
   }
 
@@ -82,7 +115,7 @@
     margin-top: 0;
 
     @include tablet {
-        margin: 0;
+      margin: 0;
     }
 
     &--phone {
@@ -95,12 +128,11 @@
     justify-content: space-between;
 
     @include tablet {
-        justify-content: flex-end;
+      justify-content: flex-end;
     }
   }
 
   &__icon {
     padding-left: 1rem;
-    cursor: pointer;
   }
 }

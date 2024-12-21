@@ -2,7 +2,7 @@
 @use "../../styles/variables" as *;
 @use "../../styles/typography" as *;
 
-.warehouses {
+.inventories {
   padding: 1rem 0;
   width: 91%;
   margin: 5rem auto 1rem auto;
@@ -99,7 +99,7 @@
 
     @include tablet {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       align-items: center;
       gap: 1.5rem;
       padding: 0.75rem 2rem;

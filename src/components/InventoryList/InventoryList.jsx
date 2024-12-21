@@ -1,21 +1,39 @@
-import "./WarehousesList.scss";
-import WarehousesListItem from "../WarehousesListItem/WarehousesListItem";
+import { useEffect, useState } from "react";
+import { baseURL } from "../../utils/api";
+import axios from "axios";
+import InventoryListItem from "../InventoryListItem/InventoryListItem";
+import "./InventoryList.scss";
 
-function WarehousesList({ handleDeleteClick, warehousesData }) {
+function InventoryList() {
+  const [inventories, setInventories] = useState([]);
+
+  useEffect(() => {
+    const fetchInventories = async () => {
+      const url = `${baseURL}/inventories/`;
+      try {
+        const response = await axios.get(url);
+        setInventories(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchInventories();
+  }, []);
+
   return (
-    <section className="warehouses">
-      <div className="warehouses__header">
-        <h1 className="warehouses__title">Warehouses</h1>
-        <div className="warehouses__functionality">
-          <div className="warehouses__search">
+    <section className="inventories">
+      <div className="inventories__header">
+        <h1 className="inventories__title">Inventory</h1>
+        <div className="inventories__functionality">
+          <div className="inventories__search">
             <input
               type="text"
-              className="warehouses__input"
+              className="inventories__input"
               name="search"
               placeholder="Search..."
             />
             <svg
-              className="warehouses__icon"
+              className="inventories__icon"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -26,12 +44,26 @@ function WarehousesList({ handleDeleteClick, warehousesData }) {
               />
             </svg>
           </div>
-          <button className="warehouses__button">+ Add New Warehouse</button>
+          <button className="inventories__button">+ Add New Item</button>
         </div>
       </div>
-      <div className="warehouses__headings">
-        <div className="warehouses__heading">
-          <h4 className="warehouses__label">WAREHOUSE</h4>
+      <div className="inventories__headings">
+        <div className="inventories__heading">
+          <h4 className="inventories__label">INVENTORY ITEM</h4>
+          <svg
+            className="inventories__sort"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 5.83L15.17 9L16.58 7.59L12 3L7.41003 7.59L8.83003 9L12 5.83ZM12 18.17L8.83003 15L7.42003 16.41L12 21L16.59 16.41L15.17 15L12 18.17Z"
+              fill="#5C667E"
+            />
+          </svg>
+        </div>
+        <div className="inventories__heading">
+          <h4 className="inventories__label">CATEGORY</h4>
           <svg
             className="warehouses__sort"
             viewBox="0 0 24 24"
@@ -44,8 +76,8 @@ function WarehousesList({ handleDeleteClick, warehousesData }) {
             />
           </svg>
         </div>
-        <div className="warehouses__heading">
-          <h4 className="warehouses__label">ADDRESS</h4>
+        <div className="inventories__heading">
+          <h4 className="inventories__label">STATUS</h4>
           <svg
             className="warehouses__sort"
             viewBox="0 0 24 24"
@@ -58,8 +90,8 @@ function WarehousesList({ handleDeleteClick, warehousesData }) {
             />
           </svg>
         </div>
-        <div className="warehouses__heading">
-          <h4 className="warehouses__label">CONTACT NAME</h4>
+        <div className="inventories__heading">
+          <h4 className="inventories__label">QTY</h4>
           <svg
             className="warehouses__sort"
             viewBox="0 0 24 24"
@@ -72,8 +104,8 @@ function WarehousesList({ handleDeleteClick, warehousesData }) {
             />
           </svg>
         </div>
-        <div className="warehouses__heading">
-          <h4 className="warehouses__label">CONTACT INFORMATION</h4>
+        <div className="inventories__heading">
+          <h4 className="inventories__label">WAREHOUSE</h4>
           <svg
             className="warehouses__sort"
             viewBox="0 0 24 24"
@@ -86,21 +118,17 @@ function WarehousesList({ handleDeleteClick, warehousesData }) {
             />
           </svg>
         </div>
-        <h4 className="warehouses__label warehouses__label--actions">
+        <h4 className="inventories__label inventories__label--actions">
           ACTIONS
         </h4>
       </div>
-      <div className="warehouses__list">
-        {warehousesData.map((warehouse) => (
-          <WarehousesListItem
-            key={warehouse.id}
-            warehouse={warehouse}
-            handleDeleteClick={handleDeleteClick}
-          />
+      <div className="inventories__list">
+        {inventories.map((inventories) => (
+          <InventoryListItem key={inventories.id} inventories={inventories} />
         ))}
       </div>
     </section>
   );
 }
 
-export default WarehousesList;
+export default InventoryList;

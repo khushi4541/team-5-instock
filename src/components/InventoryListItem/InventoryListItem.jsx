@@ -1,14 +1,21 @@
-import "./WarehousesListItem.scss";
+import "./InventoryListItem.scss";
 import { Link } from "react-router-dom";
 
-function WarehousesListItem({ warehouse, handleDeleteClick }) {
+function InventoryListitems({ inventories }) {
+  const statusClass =
+    inventories.status.toLowerCase() === "in stock"
+      ? "items__status-tag--in-stock"
+      : "items__status-tag--out-of-stock";
   return (
-    <article className="item">
-      <div className="item__details">
-        <div className="item__location">
-          <h4 className="item__label">WAREHOUSE</h4>
-          <Link to={`/warehouses/${warehouse.id}`} className="item__warehouse">
-            <p className="item__place">{warehouse.warehouse_name}</p>
+    <article className="items">
+      <div className="items__details">
+        <div className="items__location">
+          <h4 className="items__label">Inventory</h4>
+          <Link
+            to={`/inventories/${inventories.id}`}
+            className="items__inventory"
+          >
+            <p className="items__name">{inventories.item_name}</p>
             <svg
               className="item__arrow"
               width="24"
@@ -23,27 +30,25 @@ function WarehousesListItem({ warehouse, handleDeleteClick }) {
               />
             </svg>
           </Link>
-          <h4 className="item__label">ADDRESS</h4>
-          <p className="item__info">{`${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</p>
+          <h4 className="items__label">Category</h4>
+          <p className="items__info">{inventories.category}</p>
         </div>
-        <div className="item__contact">
-          <h4 className="item__label">CONTACT NAME</h4>
-          <p className="item__info">{warehouse.contact_name}</p>
-          <h4 className="item__label">CONTACT INFORMATION</h4>
-          <div className="item__contact-info">
-            <p className="item__info item__info--phone">
-              {warehouse.contact_phone}
+        <div className="items__status">
+          <h4 className="items__label">Status</h4>
+          <div className="items__status-div">
+            <p className={`items__status-tag ${statusClass}`}>
+              {inventories.status}
             </p>
-            <p className="item__info">{warehouse.contact_email}</p>
           </div>
+          <h4 className="items__label">QTY</h4>
+          <p className="items__info">{inventories.quantity}</p>
+          <h4 className="items__label">Warehouse</h4>
+          <p className="items__info">{inventories.warehouse_name}</p>
         </div>
       </div>
-      <div className="item__icons">
+      <div className="items__icons">
         <svg
-          onClick={() => {
-            handleDeleteClick(warehouse);
-          }}
-          className="item__icon"
+          className="items__icon"
           width="24"
           height="24"
           viewBox="0 0 24 24"
@@ -56,7 +61,7 @@ function WarehousesListItem({ warehouse, handleDeleteClick }) {
           />
         </svg>
         <svg
-          className="item__icon"
+          className="items__icon"
           width="24"
           height="24"
           viewBox="0 0 24 24"
@@ -73,4 +78,4 @@ function WarehousesListItem({ warehouse, handleDeleteClick }) {
   );
 }
 
-export default WarehousesListItem;
+export default InventoryListitems;

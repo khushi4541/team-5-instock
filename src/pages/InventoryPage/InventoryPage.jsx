@@ -1,7 +1,9 @@
+import InventorysList from "../../components/InventoryList/InventoryList";
+
 export default function InventoryPage() {
-    return (
-        <>
-        <h1>Inventory</h1>
-        </>
-    )
+  return (
+    <>
+      <InventorysList />
+    </>
+  );
 }
