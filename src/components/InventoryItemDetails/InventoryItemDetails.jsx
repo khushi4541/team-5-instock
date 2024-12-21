@@ -4,26 +4,26 @@ import axios from "axios";
 import "./InventoryItemDetails.scss";
 import { baseURL } from "../../../utils/api";
 
-function InventoriesItemDetails() {
-  const { id } = useParams();
+function InventoriesItemDetails({ id }) {
   const navigate = useNavigate();
-  const [inventory, setInventory] = useState(null);
+  const [inventories, setinventories] = useState(null);
 
   useEffect(() => {
-    const fetchInventory = async () => {
+    const fetchinventories = async () => {
       const url = `${baseURL}/inventories/${id}`;
       try {
         const response = await axios.get(url);
-        setInventory(response.data);
+        setinventories(response.data);
       } catch (error) {
-        console.error("Error fetching inventory details:", error);
+        console.error("Error fetching inventories details:", error);
+        alert("Failed to fetch inventory details. Please try again later."); // Improved error handling
       }
     };
 
-    fetchInventory();
+    fetchinventories();
   }, [id]);
 
-  if (!inventory) {
+  if (!inventories) {
     return <div>Loading... or Item not found</div>;
   }
 
@@ -51,7 +51,7 @@ function InventoriesItemDetails() {
               />
             </svg>
           </Link>
-          <p className="item__name">{inventory.item_name}</p>
+          <p className="item__name">{inventories.item_name}</p>
         </div>
         <button
           className="item__edit-button"
@@ -62,22 +62,24 @@ function InventoriesItemDetails() {
       </div>
 
       <div className="item__details">
-        <div className="item__info-group">
+        <div className="item__infogroup">
           <h4 className="item__label">Item Description</h4>
-          <p className="item__info">{inventory.description}</p>
+          <p className="item__info">{inventories.description}</p>
           <h4 className="item__label">Category</h4>
-          <p className="item__info">{inventory.category}</p>
+          <p className="item__info">{inventories.category}</p>
         </div>
 
         <div className="item__info-group">
-          <h4 className="item__label">Status</h4>
-          <p className={`item__status-tag ${statusClass}`}>
-            {inventory.status}
-          </p>
+          <div className="item__quantity">
+            <h4 className="item__label">Status</h4>
+            <p className={`item__status-tag ${statusClass}`}>
+              {inventories.status}
+            </p>
+            <h4 className="item__label">Warehouse</h4>
+            <p className="item__info">{inventories.warehouse_name}</p>
+          </div>
           <h4 className="item__label">QTY</h4>
-          <p className="item__info">{inventory.quantity}</p>
-          <h4 className="item__label">Warehouse</h4>
-          <p className="item__info">{inventory.warehouse_name}</p>
+          <p className="item__info">{inventories.quantity}</p>
         </div>
       </div>
     </article>

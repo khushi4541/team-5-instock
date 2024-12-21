@@ -124,8 +124,8 @@ function InventoryList() {
         </h4>
       </div>
       <div className="inventories__list">
-        {inventories.map((inventories) => (
-          <InventoryListItem key={inventories.id} inventories={inventories} />
+        {inventories.map((inventory) => (
+          <InventoryListItem key={inventory.id} inventories={inventory} />
         ))}
       </div>
     </section>
