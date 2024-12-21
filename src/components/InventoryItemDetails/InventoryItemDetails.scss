@@ -1,0 +1,31 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+@use "../../styles/typography" as *;
+.item {
+    padding: 1rem 0;
+    width: 91%;
+    margin: 5rem auto 1rem auto;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    background-color: white;
+    position: relative;
+    bottom: 10.938rem;
+    margin-bottom: -10.938rem;
+  
+    @include tablet {
+      width: 92%;
+      bottom: 11.25rem;
+      margin-bottom: -8.5rem;
+    }
+    @include desktop {
+        width: 80%;
+        margin-bottom: -8rem;
+      }
+      &__header {
+        padding: 0 1.5rem;
+        @include tablet {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+}
