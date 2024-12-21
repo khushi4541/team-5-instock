@@ -7,6 +7,21 @@ import axios from "axios";
 function WarehousesPage() {
   const [showModal, setShowModal] = useState(false);
   const [selectedWarehouse, setSelectedWarehouse] = useState(null);
+  const [warehousesData, setWarehousesData] = useState([]);
+
+  const fetchWarehouses = async () => {
+    const url = `${baseURL}/warehouses/`;
+    try {
+      const response = await axios.get(url);
+      setWarehousesData(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchWarehouses();
+  }, []);
 
   const handleDeleteClick = (warehouse) => {
     setSelectedWarehouse(warehouse);
@@ -26,6 +41,7 @@ function WarehousesPage() {
         await axios.delete(`${baseURL}/warehouses/${selectedWarehouse.id}`);
         setShowModal(false);
         setSelectedWarehouse(null);
+        fetchWarehouses();
       } catch (error) {
         console.error(error);
       }
@@ -34,7 +50,10 @@ function WarehousesPage() {
 
   return (
     <section className="warehouses-page">
-      <WarehousesList handleDeleteClick={handleDeleteClick} />
+      <WarehousesList
+        handleDeleteClick={handleDeleteClick}
+        warehousesData={warehousesData}
+      />
       {selectedWarehouse && (
         <DeleteModal
           showModal={showModal}

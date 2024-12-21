@@ -10,7 +10,7 @@ function DeleteModal({
   if (showModal === false) {
     return null;
   }
-  
+
   return (
     <div className="modal">
       <article className="modal__foreground">

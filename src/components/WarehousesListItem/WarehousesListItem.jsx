@@ -31,14 +31,18 @@ function WarehousesListItem({ warehouse, handleDeleteClick }) {
           <p className="item__info">{warehouse.contact_name}</p>
           <h4 className="item__label">CONTACT INFORMATION</h4>
           <div className="item__contact-info">
-            <p className="item__info item__info--phone">{warehouse.contact_phone}</p>
+            <p className="item__info item__info--phone">
+              {warehouse.contact_phone}
+            </p>
             <p className="item__info">{warehouse.contact_email}</p>
           </div>
         </div>
       </div>
-      <div className="item__icons" >
+      <div className="item__icons">
         <svg
-          onClick={()=>{handleDeleteClick(warehouse)}}
+          onClick={() => {
+            handleDeleteClick(warehouse);
+          }}
           className="item__icon"
           width="24"
           height="24"

@@ -1,25 +1,7 @@
-import { useEffect, useState } from "react";
-import { baseURL } from "../../utils/api";
-import axios from "axios";
 import "./WarehousesList.scss";
 import WarehousesListItem from "../WarehousesListItem/WarehousesListItem";
 
-function WarehousesList({ handleDeleteClick }) {
-  const [warehousesData, setWarehousesData] = useState([]);
-
-  useEffect(() => {
-    const fetchWarehouses = async () => {
-      const url = `${baseURL}/warehouses/`;
-      try {
-        const response = await axios.get(url);
-        setWarehousesData(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchWarehouses();
-  }, []);
-
+function WarehousesList({ handleDeleteClick, warehousesData }) {
   return (
     <section className="warehouses">
       <div className="warehouses__header">
@@ -110,7 +92,11 @@ function WarehousesList({ handleDeleteClick }) {
       </div>
       <div className="warehouses__list">
         {warehousesData.map((warehouse) => (
-          <WarehousesListItem key={warehouse.id} warehouse={warehouse} handleDeleteClick={handleDeleteClick} />
+          <WarehousesListItem
+            key={warehouse.id}
+            warehouse={warehouse}
+            handleDeleteClick={handleDeleteClick}
+          />
         ))}
       </div>
     </section>
