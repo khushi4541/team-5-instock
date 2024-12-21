@@ -55,6 +55,7 @@ function WarehousesListItem({ warehouse, handleDeleteClick }) {
             fill="#C94515"
           />
         </svg>
+        <Link to={`/warehouses/${warehouse.id}/edit`}>
         <svg
           className="item__icon"
           width="24"
@@ -68,6 +69,7 @@ function WarehousesListItem({ warehouse, handleDeleteClick }) {
             fill="#2E66E6"
           />
         </svg>
+        </Link>
       </div>
     </article>
   );
