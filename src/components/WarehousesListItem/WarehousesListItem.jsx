@@ -1,14 +1,14 @@
 import "./WarehousesListItem.scss";
 import { Link } from "react-router-dom";
 
-function WarehousesListItem({ data }) {
+function WarehousesListItem({ warehouse, handleDeleteClick }) {
   return (
     <article className="item">
       <div className="item__details">
         <div className="item__location">
           <h4 className="item__label">WAREHOUSE</h4>
-          <Link to={`/warehouses/${data.id}`} className="item__warehouse">
-            <p className="item__place">{data.warehouse_name}</p>
+          <Link to={`/warehouses/${warehouse.id}`} className="item__warehouse">
+            <p className="item__place">{warehouse.warehouse_name}</p>
             <svg
               className="item__arrow"
               width="24"
@@ -24,20 +24,25 @@ function WarehousesListItem({ data }) {
             </svg>
           </Link>
           <h4 className="item__label">ADDRESS</h4>
-          <p className="item__info">{`${data.address}, ${data.city}, ${data.country}`}</p>
+          <p className="item__info">{`${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</p>
         </div>
         <div className="item__contact">
           <h4 className="item__label">CONTACT NAME</h4>
-          <p className="item__info">{data.contact_name}</p>
+          <p className="item__info">{warehouse.contact_name}</p>
           <h4 className="item__label">CONTACT INFORMATION</h4>
           <div className="item__contact-info">
-            <p className="item__info item__info--phone">{data.contact_phone}</p>
-            <p className="item__info">{data.contact_email}</p>
+            <p className="item__info item__info--phone">
+              {warehouse.contact_phone}
+            </p>
+            <p className="item__info">{warehouse.contact_email}</p>
           </div>
         </div>
       </div>
       <div className="item__icons">
         <svg
+          onClick={() => {
+            handleDeleteClick(warehouse);
+          }}
           className="item__icon"
           width="24"
           height="24"

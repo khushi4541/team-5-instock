@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { baseURL } from "../../../utils/api";
+import { baseURL } from "../../utils/api";
 import axios from "axios";
 import InventoryListItem from "../InventoryListItem/InventoryListItem";
 import "./InventoryList.scss";
