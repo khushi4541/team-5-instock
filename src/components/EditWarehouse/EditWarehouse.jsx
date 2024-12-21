@@ -100,6 +100,7 @@ export default function EditWarehouse() {
 
 	return (
 		<section className="edit-warehouse">
+			<div className="edit-warehouse__wrapper">
 			<header className="edit-warehouse__header">
 				<button
 					className="edit-warehouse__back-button"
@@ -219,6 +220,7 @@ export default function EditWarehouse() {
 					</div>
 				</div>
 			</form>
+			</div>
 			<div className="edit-warehouse__actions">
 				<button
 					type="button"

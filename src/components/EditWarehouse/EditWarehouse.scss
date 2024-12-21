@@ -3,28 +3,37 @@
 @use "../../styles/typography" as *;
 
 .edit-warehouse {
-    display: flex;
-    flex-direction: column;
-	position: relative;
-	width: 75%;
-	margin: 5rem auto 1rem auto;
-	padding: 2rem;
-	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
-	border-radius: 5px;
-	background-color: white;
-	bottom: 10.938rem;
-	margin-bottom: -10.938rem;
+    padding: 0.75rem 0 0 0;
+    width: 91%;
+    margin: 5rem auto 1rem auto;
+    border-radius: 5px;
+    background-color: white;
+    position: relative;
+    bottom: 10.938rem;
+    margin-bottom: -10.938rem;
 
-	@include tablet {
-		bottom: 11.25rem;
-		margin-bottom: -8.5rem;
-		padding: 2.5rem;
-	}
+    @include tablet {
+        width: 92%;
+        bottom: 11.25rem;
+        margin-bottom: -8.5rem;
+    }
+    
+    @include desktop {
+        width: 80%;
+        margin-bottom: -8rem;
+    }
+}
 
-	@include desktop {
-		margin-bottom: -8rem;
-		padding: 3rem;
-	}
+.edit-warehouse__wrapper {
+    padding: 0 1rem;
+    
+    @include tablet {
+        padding: 0 2rem;
+    }
+
+    @include desktop {
+        padding: 0 3rem;
+    }
 }
 
 .edit-warehouse__header {
@@ -37,7 +46,6 @@
 .edit-warehouse__divider {
 	height: 1px;
 	background-color: $border-color;
-	margin: 1rem 0;
     width: 100%;
 }
 
@@ -94,7 +102,6 @@
 
 .edit-warehouse__section-title {
 	color: $header-color;
-	margin-bottom: 1rem;
 }
 
 .edit-warehouse__form-group {
@@ -134,11 +141,7 @@
 	align-items: center;
 	padding: 1rem; 
 	background-color: $page-background;
-	width: calc(100% + 4rem); 
-	height: calc(100% + 2rem);
-	margin-left: -2rem;
-	margin-right: -2rem; 
-	margin-bottom: -2rem; 
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
 
 	@include tablet {
@@ -153,9 +156,9 @@
 	}
 
 	@include desktop {
-		padding: 2rem; /* Adjust padding for desktop */
-		width: calc(100% + 6rem); /* Adjust for desktop padding horizontally */
-		height: calc(100% + 6rem); /* Adjust for desktop padding vertically */
+		padding: 2rem;
+		width: calc(100% + 6rem); 
+		height: calc(100% + 6rem); 
 		margin-left: -3rem;
 		margin-right: -3rem;
 		margin-bottom: -3rem;
