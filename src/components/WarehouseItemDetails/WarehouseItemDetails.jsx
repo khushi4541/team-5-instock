@@ -69,12 +69,13 @@ export default function WarehouseCardDetails() {
           Edit
         </button>
       </div>
+      <div className="card__div"></div>
       <div className="card__contact">
         <div className="card__adress">
           <h4 className="card_lab">ADDRESS</h4>
           <p className="card__info">{`${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</p>
         </div>
-
+        <div className="card__divider"></div>
         <div className="card__other">
           <div className="card__item">
             <h4 className="card__lab">CONTACT NAME</h4>

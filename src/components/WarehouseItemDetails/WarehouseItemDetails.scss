@@ -2,7 +2,6 @@
 @use "../../styles/variables" as *;
 @use "../../styles/typography" as *;
 
-
 .card {
   padding: 1rem 0;
   width: 91%;
@@ -58,7 +57,7 @@
       font-size: 0.875rem;
     }
   }
-  &__divider {
+  &__div {
     height: 1px;
     background-color: #bdc5d5;
     width: 100%;
@@ -68,7 +67,7 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      gap: 1rem;
+      gap: 0.5rem;
     }
   }
   &__contact {
@@ -77,6 +76,20 @@
       flex-direction: row;
       justify-content: space-between;
       width: 80%;
+      gap:0
+    }
+  }
+  &__divider {
+    display: block;
+
+    @include tablet {
+      display: block;
+      width: 1px;
+      background-color: #ccc;
+      height: 10rem;
+      align-self: stretch;
+      margin: auto;
+      height: 5rem;
     }
   }
   &__other {
