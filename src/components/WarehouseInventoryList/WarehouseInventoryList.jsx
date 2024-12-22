@@ -34,25 +34,51 @@ function WarehouseInventoryList() {
 			<div className="warehouse-inventory__list">
 				{inventory.map((item) => (
 					<div key={item.id} className="warehouse-inventory__item">
-						<p className="warehouse-inventory__link">
+						<p
+							className="warehouse-inventory__link"
+							data-label="Inventory Item"
+						>
 							{item.item_name}
+							<svg
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									d="M9.99997 6L8.58997 7.41L13.17 12L8.58997 16.59L9.99997 18L16 12L9.99997 6Z"
+									fill="#2E66E6"
+								/>
+							</svg>
 						</p>
-						<p className="warehouse-inventory__category">
+						<p
+							className="warehouse-inventory__category"
+							data-label="Category"
+						>
 							{item.category}
 						</p>
-						<span
-							className={`warehouse-inventory__status ${
-								item.status.toLowerCase() === "in stock"
-									? "in-stock"
-									: "out-of-stock"
-							}`}
+                        <span
+	className={`warehouse-inventory__badge ${
+		item.status.toLowerCase() === "in stock"
+			? "in-stock"
+			: "out-of-stock"
+	}`}
+	data-label="Status"
+>
+	{item.status}
+</span>
+
+						<p
+							className="warehouse-inventory__quantity"
+							data-label="Quantity"
 						>
-							{item.status}
-						</span>
-						<p className="warehouse-inventory__quantity">
 							{item.quantity}
 						</p>
-						<div className="warehouse-inventory__actions">
+						<div
+							className="warehouse-inventory__actions"
+							data-label="Actions"
+						>
 							<button>
 								<svg
 									width="24"
