@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./InventoryItemDetails.scss";
-import { baseURL } from "../../../utils/api";
+import { baseURL } from "../../utils/api";
 
 function InventoriescardDetails() {
   const { id } = useParams();
