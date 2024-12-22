@@ -78,19 +78,24 @@
     }
   }
 
+  &__add-link {
+   width: 100%; 
+
+   @include tablet {
+    width: 50%;
+    padding-right: 1rem;
+   }
+  }
+
   &__button {
     @include primary-button;
     width: 100%;
     margin: 1rem 0 2rem 0;
 
     @include tablet {
-      width: 50%;
+
       margin-left: 1rem;
       margin-bottom: 1rem;
-    }
-
-    @include desktop {
-      width: 40%;
     }
   }
 
