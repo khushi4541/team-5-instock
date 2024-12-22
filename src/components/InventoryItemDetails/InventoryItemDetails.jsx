@@ -84,9 +84,9 @@ function InventoriescardDetails() {
             <p className="card__info">{inventories.category}</p>
           </div>
           </div>
-          <div className="card__divider"></div>
+         
         </div>
-      
+        <div className="card__div"></div>
         <div className="card__ingroup">
           
           <div className="card__quantity">
