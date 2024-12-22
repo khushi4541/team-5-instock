@@ -24,7 +24,7 @@ function InventoriescardDetails() {
   }, [id]);
 
   if (!inventories) {
-    return <div>Loading... or item not found</div>;
+    return <div>Loading...</div>;
   }
 
   const statusClass =
@@ -75,21 +75,15 @@ function InventoriescardDetails() {
           Edit
         </button>
       </div>
-      <div className="card__divider"></div>
-      <div className="card__details">
+      <div className="card__div"></div>
+      <div className="card__columns">
         <div className="card__infogroup">
-          <div className="card__container">
-            <div>
-              <h4 className="card__label">Item Description:</h4>
-              <p className="card__info">{inventories.description}</p>
-            </div>
-            <div>
-              <h4 className="card__label">Category</h4>
-              <p className="card__info">{inventories.category}</p>
-            </div>
-          </div>
+          <h4 className="card__label">Item Description:</h4>
+          <p className="card__info">{inventories.description}</p>
+          <h4 className="card__label">Category</h4>
+          <p className="card__info">{inventories.category}</p>
         </div>
-        <div className="card__div"></div>
+        <div className="card__divider"></div>
         <div className="card__ingroup">
           <div className="card__quantity">
             <h4 className="card__label">Status</h4>
@@ -99,10 +93,8 @@ function InventoriescardDetails() {
             <h4 className="card__label">Warehouse</h4>
             <p className="card__info">{inventories.warehouse_name}</p>
           </div>
-          <div>
-            <h4 className="card__label">QTY</h4>
-            <p className="card__info">{inventories.quantity}</p>
-          </div>
+          <div className="card__amount"><h4 className="card__label">QTY</h4>
+          <p className="card__info">{inventories.quantity}</p></div>
         </div>
       </div>
     </article>
