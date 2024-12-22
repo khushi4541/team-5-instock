@@ -12,7 +12,6 @@
   position: relative;
   bottom: 10.938rem;
   margin-bottom: -10.938rem;
-  //   height: 274px;
 
   @include tablet {
     width: 92%;
@@ -36,11 +35,11 @@
       width: 90%;
     }
   }
-&__divider{
+  &__divider {
     height: 1px;
-    background-color: #BDC5D5;
+    background-color: #bdc5d5;
     width: 100%;
-}
+  }
 
   &__selected {
     display: flex;

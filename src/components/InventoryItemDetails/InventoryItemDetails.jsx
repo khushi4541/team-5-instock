@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./InventoryItemDetails.scss";
 import { baseURL } from "../../../utils/api";
@@ -36,7 +36,11 @@ function InventoriescardDetails() {
     <article className="card">
       <div className="card__header">
         <div className="card__selected">
-          <Link to="/inventories" className="card__back-link">
+          <div
+            className="card__back-link"
+            onClick={() => navigate(-1)}
+            style={{ cursor: "pointer" }}
+          >
             <svg
               width="24"
               height="24"
@@ -49,7 +53,7 @@ function InventoriescardDetails() {
                 fill="#2E66E6"
               />
             </svg>
-          </Link>
+          </div>
           <h1 className="card__name">{inventories.item_name}</h1>
         </div>
         <button
@@ -75,22 +79,19 @@ function InventoriescardDetails() {
       <div className="card__details">
         <div className="card__infogroup">
           <div className="card__container">
-          <div>
-            <h4 className="card__label">Item Description:</h4>
-            <p className="card__info">{inventories.description}</p>
+            <div>
+              <h4 className="card__label">Item Description:</h4>
+              <p className="card__info">{inventories.description}</p>
+            </div>
+            <div>
+              <h4 className="card__label">Category</h4>
+              <p className="card__info">{inventories.category}</p>
+            </div>
           </div>
-          <div>
-            <h4 className="card__label">Category</h4>
-            <p className="card__info">{inventories.category}</p>
-          </div>
-          </div>
-         
         </div>
         <div className="card__div"></div>
         <div className="card__ingroup">
-          
           <div className="card__quantity">
-     
             <h4 className="card__label">Status</h4>
             <p className={`card__status-tag ${statusClass}`}>
               {inventories.status}
