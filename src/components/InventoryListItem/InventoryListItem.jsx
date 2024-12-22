@@ -35,7 +35,7 @@ function InventoryListitems({ inventories }) {
         </div>
         <div className="items__status">
           <h4 className="items__label">Status</h4>
-          <div className="items__status-div">
+          <div className="item__status-div">
             <p className={`items__status-tag ${statusClass}`}>
               {inventories.status}
             </p>
