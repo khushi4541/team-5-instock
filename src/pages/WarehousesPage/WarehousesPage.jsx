@@ -49,7 +49,7 @@ function WarehousesPage() {
   };
 
   return (
-    <section className="warehouses-page">
+    <>
       <WarehousesList
         handleDeleteClick={handleDeleteClick}
         warehousesData={warehousesData}
@@ -63,7 +63,7 @@ function WarehousesPage() {
           message={`Please confirm that you’d like to delete the ${selectedWarehouse.warehouse_name} warehouse from the list of warehouses. You won’t be able to undo this action.`}
         />
       )}
-    </section>
+    </>
   );
 }
 
