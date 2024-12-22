@@ -3,166 +3,100 @@
 @use "../../styles/typography" as *;
 
 
-.warehouse-error-message {
-    color: red;
-    font-size: 16px;
-    text-align: center;
-  }
-  
-  .warehouse-details-container {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    background-color: #f9f9f9;
-  }
-  
-  .warehouse-details {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-  
-  .warehouse-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-  
-  .warehouse-header-back {
-    display: flex;
-    align-items: center;
-    color: #2e66e6;
-    text-decoration: none;
-    font-weight: bold;
-  
-    svg {
-      margin-right: 8px;
-    }
-  }
-  
-  .warehouse-header-title {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .warehouse-header-edit {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  
-    svg {
-      margin-right: 8px;
-      fill: #ffffff;
-    }
-  
-    .warehouse-edit-text {
-      font-size: 14px;
-      color: #ffffff;
-      background: #2e66e6;
-      padding: 5px 10px;
-      border-radius: 4px;
-    }
-  }
-  
-  .warehouse-info-list {
-    list-style-type: none;
+.card {
+  padding: 1rem 0;
+  width: 91%;
+  margin: 5rem auto 1rem auto;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  background-color: white;
+  position: relative;
+  bottom: 10.938rem;
+  margin-bottom: -10.938rem;
+  //   height: 274px;
+  @include tablet {
+    width: 92%;
+    bottom: 11.25rem;
+    margin-bottom: -8.5rem;
     padding: 0;
   }
-  
-  .warehouse-text-wrapper {
+  @include desktop {
+    width: 80%;
+    margin-bottom: -8rem;
     display: flex;
     flex-direction: column;
   }
-  
-  .warehouse-info-wrapper {
+  &__header {
+    padding: 1.5rem;
     display: flex;
     justify-content: space-between;
-  }
-  
-  .warehouse-info-item {
-    margin-bottom: 20px;
-  }
-  
-  .warehouse-address {
-    .warehouse-section-title {
-      font-size: 16px;
-      font-weight: bold;
-      color: #555;
-      margin-bottom: 8px;
-    }
-  
-    .warehouse-address-details {
-      font-size: 14px;
-      color: #777;
-    }
-  }
-  
-  .warehouse-contact {
-    .warehouse-contact-details,
-    .warehouse-contact-info {
-      margin-bottom: 10px;
-    }
-  
-    .warehouse-section-title {
-      font-size: 16px;
-      font-weight: bold;
-      color: #555;
-      margin-bottom: 8px;
-    }
-  
-    .contact-person-name {
-      font-size: 14px;
-      font-weight: bold;
-      color: #333;
-    }
-  
-    .contact-person-role {
-      font-size: 12px;
-      color: #777;
-    }
-  
-    .contact-phone,
-    .contact-email {
-      font-size: 14px;
-      color: #777;
-    }
-  }
-  
-  .inventory-header {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px 20px;
-  }
-  
-  .inventory-columns {
-    display: flex;
-    justify-content: space-between;
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .inventory-column-title {
-    display: flex;
     align-items: center;
-  
-    .inventory-label {
-      font-size: 14px;
-      font-weight: bold;
-      color: #555;
-      margin-right: 8px;
-    }
-  
-    svg {
-      fill: #5c667e;
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
     }
   }
-  
-  .inventory-actions {
-    text-align: center;
+  &__headeredit {
+    display: flex;
+    border-radius: 20px;
+    border: 1px solid $border-color;
+    padding: 0.5rem 1rem;
+    background-color: #2e66e5;
+    font-family: "Titillium Web";
+    font-weight: 400;
+    font-size: 0.813rem;
+    color: white;
+    height: 2.375rem;
+    font-size: 0.875rem;
+    &:hover {
+      border-color: $interactive-elements;
+    }
+    @include tablet {
+      height: 2.375rem;
+      font-size: 0.875rem;
+    }
   }
-  
+  &__divider {
+    height: 1px;
+    background-color: #bdc5d5;
+    width: 100%;
+  }
+  &__selected {
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+    }
+  }
+  &__contact {
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 80%;
+    }
+  }
+  &__other {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1.5rem;
+    width: 60%;
+
+    @include tablet {
+      display: flex;
+      justify-content: flex-start;
+      gap: 3rem;
+      padding-left: 1.5rem;
+
+      display: flex;
+      justify-content: space-between;
+      width: 40%;
+    }
+  }
+  &__adress {
+    padding: 0 1.5rem;
+  }
+}
