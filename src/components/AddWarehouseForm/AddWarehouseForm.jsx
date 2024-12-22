@@ -121,7 +121,8 @@ function AddWarehouseForm() {
                 />
                 {errors[name] && (
                   <div className="add-warehouse__error-message">
-                    <svg className="add-warehouse__error-icon"
+                    <svg
+                      className="add-warehouse__error-icon"
                       width="16"
                       height="16"
                       viewBox="0 0 24 24"
@@ -162,7 +163,8 @@ function AddWarehouseForm() {
                 />
                 {errors[name] && (
                   <div className="add-warehouse__error-message">
-                    <svg className="add-warehouse__error-icon"
+                    <svg
+                      className="add-warehouse__error-icon"
                       width="16"
                       height="16"
                       viewBox="0 0 24 24"
