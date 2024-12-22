@@ -25,74 +25,10 @@ function WarehouseInventoryList() {
 	return (
 		<section className="inventory-list">
 			<div className="inventory-list__headings">
-				<div className="inventory-list__heading">
-					<h4 className="inventory-list__label">INVENTORY ITEM</h4>
-					<button className="inventory-list__sort-btn">
-						<svg
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path
-								d="M12 5.83L15.17 9L16.58 7.59L12 3L7.41003 7.59L8.83003 9L12 5.83ZM12 18.17L8.83003 15L7.42003 16.41L12 21L16.59 16.41L15.17 15L12 18.17Z"
-								fill="#5C667E"
-							/>
-						</svg>
-					</button>
-				</div>
-				<div className="inventory-list__heading">
-					<h4 className="inventory-list__label">CATEGORY</h4>
-					<button className="inventory-list__sort-btn">
-						<svg
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path
-								d="M12 5.83L15.17 9L16.58 7.59L12 3L7.41003 7.59L8.83003 9L12 5.83ZM12 18.17L8.83003 15L7.42003 16.41L12 21L16.59 16.41L15.17 15L12 18.17Z"
-								fill="#5C667E"
-							/>
-						</svg>
-					</button>
-				</div>
-				<div className="inventory-list__heading">
-					<h4 className="inventory-list__label">STATUS</h4>
-					<button className="inventory-list__sort-btn">
-						<svg
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path
-								d="M12 5.83L15.17 9L16.58 7.59L12 3L7.41003 7.59L8.83003 9L12 5.83ZM12 18.17L8.83003 15L7.42003 16.41L12 21L16.59 16.41L15.17 15L12 18.17Z"
-								fill="#5C667E"
-							/>
-						</svg>
-					</button>
-				</div>
-				<div className="inventory-list__heading">
-					<h4 className="inventory-list__label">QTY</h4>
-					<button className="inventory-list__sort-btn">
-						<svg
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path
-								d="M12 5.83L15.17 9L16.58 7.59L12 3L7.41003 7.59L8.83003 9L12 5.83ZM12 18.17L8.83003 15L7.42003 16.41L12 21L16.59 16.41L15.17 15L12 18.17Z"
-								fill="#5C667E"
-							/>
-						</svg>
-					</button>
-				</div>
+				<h4 className="inventory-list__label">INVENTORY ITEM</h4>
+				<h4 className="inventory-list__label">CATEGORY</h4>
+				<h4 className="inventory-list__label">STATUS</h4>
+				<h4 className="inventory-list__label">QTY</h4>
 				<h4 className="inventory-list__label inventory-list__label--actions">
 					ACTIONS
 				</h4>
@@ -120,7 +56,7 @@ function WarehouseInventoryList() {
 							</p>
 						</div>
 						<div className="inventory-list__actions">
-							<button className="inventory-list__action-btn">
+							<button>
 								<svg
 									width="24"
 									height="24"
@@ -134,7 +70,7 @@ function WarehouseInventoryList() {
 									/>
 								</svg>
 							</button>
-							<button className="inventory-list__action-btn">
+							<button>
 								<svg
 									width="24"
 									height="24"

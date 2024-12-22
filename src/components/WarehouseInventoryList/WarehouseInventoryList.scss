@@ -3,157 +3,173 @@
 @use "../../styles/typography" as *;
 
 .inventory-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	width: 100%;
 
-    @include tablet {
-        gap: 1.5rem;
-    }
+	@include tablet {
+		gap: 1.5rem;
+	}
 
-    &__headings {
-        display: none;
+	&__headings {
+		display: none;
 
-        @include tablet {
-            display: flex;
-            justify-content: space-between;
-            padding: 1rem;
-            background-color: $page-background;
-            // border: 1px solid $border-color;
-            border-radius: 0.5rem;
-            font-size: 0.875rem;
-            font-weight: bold;
-            color: $header-color;
-        }
+		@include tablet {
+			display: flex;
+			justify-content: space-between;
+			padding: 1rem;
+			background-color: $page-background;
+			border-radius: 0.5rem;
+			font-size: 0.875rem;
+			font-weight: bold;
+			color: $header-color;
+		}
 
-        &-heading {
-            flex: 1;
-            text-align: left;
+		&-heading {
+			flex: 1;
+			text-align: left;
 
-            &:last-child {
-                text-align: center; /* For actions column */
-                flex: 0.5;
-            }
-        }
-    }
+			&:last-child {
+				text-align: center; /* For actions column */
+				flex: 0.5;
+			}
+		}
+	}
 
-    &__item {
-        display: flex;
-        flex-direction: column;
-        padding: 1rem;
-        background-color: white;
-        border: 1px solid $header-color;
-        border-radius: 0.5rem;
-        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+	&__label {
+		font-family: "Titillium Web";
+		font-weight: 600;
+		font-size: 0.688rem;
+		line-height: 1rem;
+		color: $text-color;
 
-        @include tablet {
-            flex-direction: row;
-            align-items: center;
-            padding: 1.5rem;
-        }
+		@include tablet {
+			font-size: 0.75rem;
+			line-height: 1.125rem;
+		}
 
-        &:hover {
-            border-color: $interactive-elements;
-        }
-    }
+		&--actions {
+			text-align: center;
+		}
+	}
 
-    &__details {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        width: 100%;
+	&__item {
+		display: flex;
+		flex-direction: column;
+		padding: 1rem;
+		background-color: white;
+		border: 1px solid $header-color;
+		border-radius: 0.5rem;
+		box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
 
-        @include tablet {
-            flex-direction: row;
-            align-items: center;
-            gap: 1rem;
-        }
+		@include tablet {
+			flex-direction: row;
+			align-items: center;
+			padding: 1.5rem;
+		}
 
-        &-item {
-            flex: 1;
-            text-align: left;
-            font-size: 0.875rem;
-            color: $text-color;
+		&:hover {
+			border-color: $interactive-elements;
+		}
+	}
 
-            @include tablet {
-                font-size: 1rem;
-            }
-        }
+	&__details {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		width: 100%;
 
-        &-status {
-            flex: 0 0 120px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            font-size: 0.875rem;
-            font-weight: bold;
-            border-radius: 1rem;
-            padding: 0.25rem 0.75rem;
+		@include tablet {
+			flex-direction: row;
+			align-items: center;
+			gap: 1rem;
+		}
 
-            &.in {
-                color: $in-stock-label;
-                background-color: rgba(21, 132, 99, 0.07);
-            }
+		&-item {
+			flex: 1;
+			text-align: left;
+			font-size: 0.875rem;
+			color: $text-color;
 
-            &.out {
-                color: $out-of-stock-label;
-                background-color: rgba(201, 69, 21, 0.07);
-            }
+			@include tablet {
+				font-size: 1rem;
+			}
+		}
 
-            @include tablet {
-                font-size: 1rem;
-                padding: 0.375rem 1rem;
-            }
-        }
+		&-status {
+			flex: 0 0 120px;
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			font-size: 0.875rem;
+			font-weight: bold;
+			border-radius: 1rem;
+			padding: 0.25rem 0.75rem;
 
-        &-quantity {
-            flex: 0 0 60px;
-            text-align: center;
-            font-size: 0.875rem;
-            color: $text-color;
+			&.in {
+				color: $in-stock-label;
+				background-color: rgba(21, 132, 99, 0.07);
+			}
 
-            @include tablet {
-                text-align: left;
-                font-size: 1rem;
-            }
-        }
+			&.out {
+				color: $out-of-stock-label;
+				background-color: rgba(201, 69, 21, 0.07);
+			}
 
-        &-actions {
-            flex: 0 0 auto;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+			@include tablet {
+				font-size: 1rem;
+				padding: 0.375rem 1rem;
+			}
+		}
 
-            button {
-                background: none;
-                border: none;
-                cursor: pointer;
-                padding: 0;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+		&-quantity {
+			flex: 0 0 60px;
+			text-align: center;
+			font-size: 0.875rem;
+			color: $text-color;
 
-                svg {
-                    width: 1.25rem;
-                    height: 1.25rem;
+			@include tablet {
+				text-align: left;
+				font-size: 1rem;
+			}
+		}
 
-                    &.edit {
-                        fill: $interactive-elements;
-                    }
+		&-actions {
+			flex: 0 0 auto;
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
 
-                    &.delete {
-                        fill: $out-of-stock-label;
-                        }
-                    }
-                }
+			button {
+				background: none;
+				border: none;
+				cursor: pointer;
+				padding: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
 
-                @include tablet {
-                    svg {
-                        width: 1.5rem;
-                        height: 1.5rem;
-                    }
-                }
-            }
-        }
-    }
+				svg {
+					width: 1.25rem;
+					height: 1.25rem;
+
+					&.edit {
+						fill: $interactive-elements;
+					}
+
+					&.delete {
+						fill: $out-of-stock-label;
+					}
+				}
+			}
+
+			@include tablet {
+				svg {
+					width: 1.5rem;
+					height: 1.5rem;
+				}
+			}
+		}
+	}
+}
