@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import { baseURL } from "../../utils/api";
 import "./AddWarehouseForm.scss";
 
 function AddWarehouseForm() {
@@ -71,7 +72,7 @@ function AddWarehouseForm() {
     // Validate form
     if (!validateForm()) return;
     try {
-      await axios.post("http://localhost:3030/warehouses/", formData);
+      await axios.post(`${baseURL}/warehouses/`, formData);
       setErrors({}); // Clear errors
       navigate(-1); // Go back to the previous page
     } catch (error) {
