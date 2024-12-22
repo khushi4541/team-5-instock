@@ -42,16 +42,42 @@ function WarehouseInventoryList() {
 								className="inventory-list__link"
 							>
 								{item.item_name}
+								<svg
+									className="inventory-list__link-icon"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										d="M9.99997 6L8.58997 7.41L13.17 12L8.58997 16.59L9.99997 18L16 12L9.99997 6Z"
+										fill="#2E66E6"
+									/>
+								</svg>
 							</a>
 							<p className="inventory-list__category">
+								<span className="inventory-list__label--mobile">
+									Category
+								</span>
 								{item.category}
 							</p>
-							<p
-								className={`inventory-list__status ${item.status.toLowerCase()}`}
-							>
-								{item.status}
+							<p className="inventory-list__status">
+								<span className="inventory-list__label--mobile">
+									Status
+								</span>
+								<span
+									className={`inventory-list__status-pill ${item.status
+										.toLowerCase()
+										.replace(/\s+/g, "-")}`} // Replaces all spaces with hyphens
+								>
+									{item.status}
+								</span>
 							</p>
 							<p className="inventory-list__quantity">
+								<span className="inventory-list__label--mobile">
+									Qty
+								</span>
 								{item.quantity}
 							</p>
 						</div>
