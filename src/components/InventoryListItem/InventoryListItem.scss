@@ -67,12 +67,14 @@
       &--in-stock {
         background-color: rgba(21, 132, 99, 0.07);
         color: #158463;
+        border-radius: 1.25rem;
         
       }
 
       &--out-of-stock {
         background-color: rgba(201, 69, 21, 0.07);
         color: #c94515;
+        border-radius: 1.25rem;
         
       }
     }

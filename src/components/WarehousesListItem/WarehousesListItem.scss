@@ -8,8 +8,8 @@
 
   @include tablet {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); 
-    align-items: center; 
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
     gap: 1rem;
     padding: 1rem 2rem;
     text-align: left;
@@ -20,7 +20,7 @@
     justify-content: space-between;
 
     @include tablet {
-        display: contents;
+      display: contents;
     }
   }
 
@@ -40,7 +40,7 @@
     width: 50%;
 
     @include tablet {
-        display: contents;
+      display: contents;
     }
   }
 
@@ -50,8 +50,8 @@
     @include reset-link-styling;
 
     &:hover {
-        text-decoration: underline;
-        color: $interactive-elements;
+      text-decoration: underline;
+      color: $interactive-elements;
     }
   }
 
@@ -61,7 +61,7 @@
     margin-top: 0;
 
     @include tablet {
-        margin: 0;
+      margin: 0;
     }
   }
 
@@ -82,12 +82,13 @@
     margin-top: 0;
 
     @include tablet {
-        margin: 0;
+      margin: 0;
     }
 
     &--phone {
       margin-bottom: 0;
     }
+   
   }
 
   &__icons {
@@ -95,7 +96,7 @@
     justify-content: space-between;
 
     @include tablet {
-        justify-content: flex-end;
+      justify-content: flex-end;
     }
   }
 

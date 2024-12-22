@@ -90,6 +90,11 @@
       padding-left: 1.5rem;
     }
   }
+  &__info {
+    &-item {
+      margin: 0;
+    }
+  }
   &__ingroup {
     display: flex;
     justify-content: space-between;

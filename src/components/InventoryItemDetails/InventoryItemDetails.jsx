@@ -78,23 +78,25 @@ function InventoriescardDetails() {
       <div className="card__div"></div>
       <div className="card__columns">
         <div className="card__infogroup">
-          <h4 className="card__label">Item Description:</h4>
-          <p className="card__info">{inventories.description}</p>
-          <h4 className="card__label">Category</h4>
-          <p className="card__info">{inventories.category}</p>
+          <h4 className="card__label">ITEM DESCRIPTION:</h4>
+          <p className="card__info-item">{inventories.description}</p>
+          <h4 className="card__label">CATEGORY:</h4>
+          <p className="card__info-item">{inventories.category}</p>
         </div>
         <div className="card__divider"></div>
         <div className="card__ingroup">
           <div className="card__quantity">
-            <h4 className="card__label">Status</h4>
-            <p className={`card__status-tag ${statusClass}`}>
+            <h4 className="card__label">STATUS:</h4>
+            <p className={`card__info-item card__status-tag ${statusClass}`}>
               {inventories.status}
             </p>
-            <h4 className="card__label">Warehouse</h4>
-            <p className="card__info">{inventories.warehouse_name}</p>
+            <h4 className="card__label">WAREHOUSE:</h4>
+            <p className="card__info-item">{inventories.warehouse_name}</p>
           </div>
-          <div className="card__amount"><h4 className="card__label">QTY</h4>
-          <p className="card__info">{inventories.quantity}</p></div>
+          <div className="card__amount">
+            <h4 className="card__label">QTY:</h4>
+            <p className="card__info-item">{inventories.quantity}</p>
+          </div>
         </div>
       </div>
     </article>
