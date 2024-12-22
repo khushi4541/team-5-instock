@@ -7,35 +7,30 @@
 	flex-direction: column;
 	width: 100%;
 
+	// Headings for tablet/desktop
 	&__headings {
 		display: none;
 
 		@include tablet {
-			display: grid;
-			grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-			align-items: center;
-			gap: 1rem;
+			display: flex;
+			justify-content: space-between;
 			padding: 0.75rem 2rem;
 			background-color: $page-background;
 			color: $header-color;
 		}
 	}
 
+	// Mobile-specific labels
 	&__label {
 		color: $text-color;
 
-		@include tablet {
-			font-size: 0.75rem;
-			line-height: 1.125rem;
-		}
-
-        &--mobile {
-            display: inline-block;
-            font-weight: 600;
-            font-size: 0.688rem;
-            line-height: 1rem;
-            color: $header-color;
-            margin-right: 0.25rem;
+		&--mobile {
+			display: inline-block;
+			font-weight: 600;
+			font-size: 0.688rem;
+			line-height: 1rem;
+			color: $header-color;
+			margin-right: 0.25rem;
 
 			@include tablet {
 				display: none;
@@ -47,34 +42,38 @@
 		}
 	}
 
+	// Items container
 	&__items {
 		display: flex;
 		flex-direction: column;
+		gap: 1px;
 
-        @include tablet {
-			display: grid;
-			// grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+		@include tablet {
+			gap: 0; /* Remove gaps between rows */
 		}
 	}
 
+	// Individual item styling
 	&__item {
 		display: flex;
-		flex-direction: column;
+		flex-wrap: wrap; /* Prevents breaking */
+		justify-content: space-between;
+		align-items: center;
 		padding: 1rem;
 		background-color: white;
 		border: 1px solid $header-color;
 
 		@include tablet {
-			flex-direction: row;
 			padding: 1.5rem;
 		}
 	}
 
+	// Details within an item
 	&__details {
+		flex: 2;
 		display: flex;
 		flex-direction: column;
 		gap: 0.5rem;
-		flex: 1;
 
 		@include tablet {
 			flex-direction: row;
@@ -82,31 +81,50 @@
 		}
 	}
 
+	// Each column
+	&__category,
+	&__status,
+	&__quantity,
 	&__actions {
+		flex: 1;
 		display: flex;
+		align-items: center;
 
-		button {
-			border: none;
-			background: none;
-			cursor: pointer;
+		&:last-child {
+			justify-content: flex-end;
+		}
+	}
 
-			svg {
-				width: 1.5rem;
-				height: 1.5rem;
-			}
+	// Link styling for the inventory title
+	&__link {
+		color: $interactive-elements;
+		font-weight: 600;
+		text-decoration: none;
+        font-family: "Titillium Web";
 
-			&:hover svg path {
-				fill: darken($header-color, 10%);
+		&:hover {
+			text-decoration: underline;
+		}
+
+		svg {
+			width: 1rem;
+			height: 1rem;
+			margin-left: 0.5rem;
+			fill: $interactive-elements;
+
+			&:hover {
+				fill: darken($interactive-elements, 10%);
 			}
 		}
 	}
 
+	// Pill styling for in-stock and out-of-stock labels
 	&__status-pill {
+		display: inline-block;
 		text-align: center;
 		padding: 0.25rem 0.5rem;
 		border-radius: 1rem;
-		font-size: 0.688rem;
-		line-height: 1rem;
+		font-weight: 600;
 		text-transform: uppercase;
 
 		&.in-stock {
@@ -120,22 +138,21 @@
 		}
 	}
 
-	&__link {
-		color: $interactive-elements;
-		font-weight: 600;
-		font-family: "Titillium Web";
-		text-decoration: none;
+	// Actions for the item
+	&__actions {
+		display: flex;
+		gap: 0.5rem;
+		align-items: center;
 
-		&:hover {
-			text-decoration: underline;
-		}
+		button {
+			border: none;
+			background: none;
+			cursor: pointer;
 
-		&-icon {
-			margin-left: 0.5rem;
-			vertical-align: middle; 
-			width: 1.5rem;
-			height: 1.5rem;
-			fill: $interactive-elements; 
+			svg {
+				width: 1.5rem;
+				height: 1.5rem;
+			}
 		}
 	}
 }
