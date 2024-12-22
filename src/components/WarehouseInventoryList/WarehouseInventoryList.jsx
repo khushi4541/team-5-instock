@@ -4,89 +4,59 @@ import axios from "axios";
 import "./WarehouseInventoryList.scss";
 
 function WarehouseInventoryList() {
-	const { id } = useParams(); // Assuming warehouse ID is passed as a param
+	const { id } = useParams();
 	const [inventory, setInventory] = useState([]);
 
 	useEffect(() => {
 		const fetchInventory = async () => {
+			const url = `http://localhost:3030/warehouses/${id}/inventory`;
 			try {
-				const response = await axios.get(
-					`http://localhost:3030/warehouses/${id}/inventory`
-				);
+				const response = await axios.get(url);
 				setInventory(response.data);
 			} catch (error) {
-				console.error("Error fetching inventory:", error);
+				console.error(error);
 			}
 		};
-
 		fetchInventory();
 	}, [id]);
 
 	return (
-		<section className="inventory-list">
-			<div className="inventory-list__headings">
-				<h4 className="inventory-list__label">INVENTORY ITEM</h4>
-				<h4 className="inventory-list__label">CATEGORY</h4>
-				<h4 className="inventory-list__label">STATUS</h4>
-				<h4 className="inventory-list__label">QTY</h4>
-				<h4 className="inventory-list__label inventory-list__label--actions">
+		<section className="warehouse-inventory">
+			<div className="warehouse-inventory__headings">
+				<h4 className="warehouse-inventory__label">INVENTORY ITEM</h4>
+				<h4 className="warehouse-inventory__label">CATEGORY</h4>
+				<h4 className="warehouse-inventory__label">STATUS</h4>
+				<h4 className="warehouse-inventory__label">QTY</h4>
+				<h4 className="warehouse-inventory__label warehouse-inventory__label--actions">
 					ACTIONS
 				</h4>
 			</div>
-			<div className="inventory-list__items">
+			<div className="warehouse-inventory__list">
 				{inventory.map((item) => (
-					<div key={item.id} className="inventory-list__item">
-						<div className="inventory-list__details">
-							<a
-								href={`/inventory/${item.id}`}
-								className="inventory-list__link"
-							>
-								{item.item_name}
-								<svg
-									className="inventory-list__link-icon"
-									width="24"
-									height="24"
-									viewBox="0 0 24 24"
-									fill="none"
-									xmlns="http://www.w3.org/2000/svg"
-								>
-									<path
-										d="M9.99997 6L8.58997 7.41L13.17 12L8.58997 16.59L9.99997 18L16 12L9.99997 6Z"
-										fill="#2E66E6"
-									/>
-								</svg>
-							</a>
-							<p className="inventory-list__category">
-								<span className="inventory-list__label--mobile">
-									Category
-								</span>
-								{item.category}
-							</p>
-							<p className="inventory-list__status">
-								<span className="inventory-list__label--mobile">
-									Status
-								</span>
-								<span
-									className={`inventory-list__status-pill ${item.status
-										.toLowerCase()
-										.replace(/\s+/g, "-")}`} // Replaces all spaces with hyphens
-								>
-									{item.status}
-								</span>
-							</p>
-							<p className="inventory-list__quantity">
-								<span className="inventory-list__label--mobile">
-									Qty
-								</span>
-								{item.quantity}
-							</p>
-						</div>
-						<div className="inventory-list__actions">
+					<div key={item.id} className="warehouse-inventory__item">
+						<p className="warehouse-inventory__link">
+							{item.item_name}
+						</p>
+						<p className="warehouse-inventory__category">
+							{item.category}
+						</p>
+						<span
+							className={`warehouse-inventory__status ${
+								item.status.toLowerCase() === "in stock"
+									? "in-stock"
+									: "out-of-stock"
+							}`}
+						>
+							{item.status}
+						</span>
+						<p className="warehouse-inventory__quantity">
+							{item.quantity}
+						</p>
+						<div className="warehouse-inventory__actions">
 							<button>
 								<svg
 									width="24"
 									height="24"
-									viewBox="0 0 24 24"
 									fill="none"
 									xmlns="http://www.w3.org/2000/svg"
 								>
@@ -100,7 +70,6 @@ function WarehouseInventoryList() {
 								<svg
 									width="24"
 									height="24"
-									viewBox="0 0 24 24"
 									fill="none"
 									xmlns="http://www.w3.org/2000/svg"
 								>
