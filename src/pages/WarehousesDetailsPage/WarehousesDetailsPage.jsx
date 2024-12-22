@@ -1,7 +1,9 @@
-export default function WarehousesDetailsPage() {
-    return (
-        <>
-        <h1>Warehouse Details</h1>
-        </>
-    )
+import WarehouseDetails from "../../components/WarehouseItemDetails/WarehouseItemDetails";
+
+export default function WarehouseDetailsPage() {
+  return (
+    <>
+      <WarehouseDetails />
+    </>
+  );
 }
