@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { baseURL } from "../../utils/api";
 import axios from "axios";
 import InventoryListItem from "../InventoryListItem/InventoryListItem";
+import { Link } from "react-router-dom";
 import "./InventoryList.scss";
 
 function InventoryList() {

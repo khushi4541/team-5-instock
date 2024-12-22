@@ -1,7 +1,9 @@
+import InventoryItemDetails from "../../components/InventoryItemDetails/InventoryItemDetails";
+
 export default function InventoryDetailsPage() {
-    return (
-        <>
-        <h1>Product Name</h1>
-        </>
-    )
+  return (
+    <>
+      <InventoryItemDetails />
+    </>
+  );
 }
