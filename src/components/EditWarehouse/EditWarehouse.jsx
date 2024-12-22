@@ -42,6 +42,9 @@ export default function EditWarehouse() {
 	const handleInputChange = (e) => {
 		const { name, value } = e.target;
 		setFormData((prevData) => ({ ...prevData, [name]: value }));
+		if (errors && name !== "") {
+			setErrors({});
+		}
 	};
 
 	const validateForm = () => {

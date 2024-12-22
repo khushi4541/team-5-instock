@@ -1,7 +1,9 @@
+import AddWarehouseForm from "../../components/AddWarehouseForm/AddWarehouseForm";
+
 export default function WarehousesAddPage() {
     return (
         <>
-        <h1>Add New Warehouse</h1>
+        <AddWarehouseForm/>
         </>
     )
 }

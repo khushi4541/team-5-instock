@@ -27,7 +27,6 @@ function WarehousesListItem({ warehouse, handleDeleteClick }) {
           <p className="item__info">{`${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</p>
         </div>
         <div className="item__contact">
-          <h4 className="item__label">CONTACT NAME</h4>
           <p className="item__info">{warehouse.contact_name}</p>
           <h4 className="item__label">CONTACT INFORMATION</h4>
           <div className="item__contact-info">
@@ -55,7 +54,7 @@ function WarehousesListItem({ warehouse, handleDeleteClick }) {
             fill="#C94515"
           />
         </svg>
-        <Link to={`/warehouses/${warehouse.id}/edit`}>
+
         <svg
           className="item__icon"
           width="24"
@@ -69,7 +68,6 @@ function WarehousesListItem({ warehouse, handleDeleteClick }) {
             fill="#2E66E6"
           />
         </svg>
-        </Link>
       </div>
     </article>
   );
