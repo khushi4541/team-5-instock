@@ -103,4 +103,11 @@
   &__form-group {
     padding-right: 1.5rem;
   }
+
+  &__dropdown {
+    width: 105%;
+    @include input-box;
+    height: 2.25rem;
+    padding-right: 1rem;
+  }
 }
