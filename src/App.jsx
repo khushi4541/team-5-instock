@@ -41,6 +41,7 @@ function App() {
         <Route path="/inventories/:id" element={<InventoryDetailsPage />} />
         <Route path="/inventory/:id/edit" element={<InventoryEditPage warehousesData={warehousesData} fetchWarehouses={fetchWarehouses}/>} />
         <Route path="/inventory/add" element={<InventoryAddPage />} />
+
       </Routes>
       <Footer />
     </BrowserRouter>

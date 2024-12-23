@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import WarehouseInventoryList from "../../components/WarehouseInventoryList/WarehouseInventoryList";
 import DeleteModal from "../../components/DeleteModal/DeleteModal";
+import WarehouseCardDetails from "../../components/WarehouseItemDetails/WarehouseItemDetails";
 
 export default function WarehousesDetailsPage() {
     const { id } = useParams();
@@ -52,6 +53,8 @@ export default function WarehousesDetailsPage() {
 
     return (
         <>
+        <div>
+        <WarehouseCardDetails />
             <WarehouseInventoryList 
                 inventory={inventory} 
                 handleDeleteClick={handleDeleteClick} 
@@ -65,6 +68,7 @@ export default function WarehousesDetailsPage() {
                     message={`Please confirm that you’d like to delete ${selectedItem.item_name} from the inventory. This action cannot be undone.`}
                 />
             )}
+        </div>
         </>
     );
 }

@@ -1,7 +1,8 @@
+import AddInventoryForm from "../../components/AddInventoryForm/AddInventoryForm";
 export default function InventoryAddPage() {
-    return (
-        <>
-            <h1>Add new inventory item</h1>
-        </>
-    )
+  return (
+    <>
+      <AddInventoryForm />
+    </>
+  );
 }

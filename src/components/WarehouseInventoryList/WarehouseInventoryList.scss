@@ -3,6 +3,29 @@
 @use "../../styles/typography" as *;
 
 .warehouse-inventory {
+    width: 91%;
+    margin: 8rem auto 1rem auto;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    background-color: white;
+    position: relative;
+    bottom: 10.938rem;
+    margin-bottom: -10.938rem;
+    border-top: 1px solid $border-color;
+
+    @include tablet {
+        width: 92%;
+        bottom: 11.25rem;
+        margin-bottom: -8.5rem;
+        padding: 0;
+    }
+    @include desktop {
+        width: 80%;
+        margin-bottom: -8rem;
+        display: flex;
+        flex-direction: column;
+    }
+
 	&__headings {
 		display: none;
 
@@ -33,9 +56,6 @@
         font-size: 0.75rem;
         line-height: 1.125rem;
 
-		@include tablet {
-		}
-
 		&--actions {
 			text-align: center;
 		}
@@ -49,9 +69,9 @@
 	&__item {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		gap: 0.75rem; /* Adjusted for better spacing */
+		gap: 0.75rem;
 		padding: 1rem;
-		border-bottom: 1px solid $header-color;
+		border-bottom: 1px solid $border-color;
 		background-color: white;
 
 		@include tablet {
@@ -68,6 +88,7 @@
         font-weight: 600;
         color: $interactive-elements;
         text-decoration: none;
+        margin-top: 0.5rem;
     
         &:before {
             content: "Inventory Item";
@@ -76,6 +97,7 @@
             line-height: 1rem;
             color: $header-color;
             margin-bottom: 0.25rem;
+            text-transform: uppercase;
     
             @include tablet {
                 display: none;
@@ -112,6 +134,7 @@
 			line-height: 1rem;
 			color: $header-color;
 			margin-bottom: 0.25rem;
+            text-transform: uppercase;
 
 			@include tablet {
 				display: none;
@@ -129,9 +152,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        max-width: 7rem;
+        max-width: 6rem;
         position: relative;
-        font-size: 0.9rem;
+        font-size: 0.75rem;
+        margin-top: 0.4rem;
+        margin-left: -0.3rem;
     
         &.in-stock {
             color: $in-stock-label;
@@ -143,43 +168,40 @@
             background-color: rgba($out-of-stock-label, 0.07);
         }
     
-        // Add a separate label above the badge for mobile
+
         &-label {
-            display: block; /* Make sure the label is visible */
+            display: block;
             position: relative;
-            margin-bottom: 0.25rem; /* Adds spacing below the label */
+            margin-bottom: 0.25rem; 
             text-align: left;
             font-size: 0.688rem;
-            line-height: 1rem;
             color: $header-color;
             font-weight: 600;
             font-family: "Titillium Web";
+            text-transform: uppercase;
     
             @include tablet {
-                display: none; /* Hide on tablet and larger screens */
+                display: none; 
             }
         }
     }
     
     &__actions {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        justify-content: space-between;
-        align-items: center;
+        grid-column: span 2;
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
     
         @include tablet {
-            display: flex;
-            justify-content: flex-end;
+            justify-content: flex-end; 
+            grid-column: span 1;
         }
     
-        button {
+        button, 
+        .warehouse-inventory__edit {
             border: none;
             background: none;
             cursor: pointer;
-    
-            &:first-child {
-                justify-self: flex-start;
-            }
     
             svg {
                 width: 1.5rem;
@@ -187,15 +209,4 @@
             }
         }
     }
-
-	&__edit {
-		cursor: pointer;
-		display: flex;
-		align-items: center;
-
-		svg {
-			width: 1.5rem;
-			height: 1.5rem;
-		}
-	}
 }
