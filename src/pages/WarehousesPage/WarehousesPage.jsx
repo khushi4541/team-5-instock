@@ -4,20 +4,9 @@ import WarehousesList from "../../components/WarehousesList/WarehousesList";
 import DeleteModal from "../../components/DeleteModal/DeleteModal";
 import axios from "axios";
 
-function WarehousesPage() {
+function WarehousesPage({ warehousesData, fetchWarehouses}) {
   const [showModal, setShowModal] = useState(false);
   const [selectedWarehouse, setSelectedWarehouse] = useState(null);
-  const [warehousesData, setWarehousesData] = useState([]);
-
-  const fetchWarehouses = async () => {
-    const url = `${baseURL}/warehouses/`;
-    try {
-      const response = await axios.get(url);
-      setWarehousesData(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   useEffect(() => {
     fetchWarehouses();

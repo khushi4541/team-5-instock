@@ -1,7 +1,9 @@
-export default function InventoryEditPage() {
-    return (
-        <>
-        <h1>Edit inventory item</h1>
-        </>
-    )
+import EditInventoryForm from "../../components/EditInventoryForm/EditInventoryForm";
+
+export default function InventoryEditPage({ fetchWarehouses, warehousesData}) {
+  return (
+    <>
+      <EditInventoryForm fetchWarehouses={fetchWarehouses} warehousesData={warehousesData} />
+    </>
+  );
 }
