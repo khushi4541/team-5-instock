@@ -134,7 +134,15 @@
     }
   }
 
-  &__icon {
-    padding-left: 1rem;
+  &__delete-btn {
+    all: unset;
+    cursor: pointer; 
+    display: inline-flex;
+    align-items: center;
+
+    svg {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
   }
 }
