@@ -45,7 +45,9 @@ function InventoryList() {
               />
             </svg>
           </div>
-          <button className="inventories__button">+ Add New Item</button>
+          <Link to="/inventories/add" className="warehouses__add-link">
+            <button className="warehouses__button">+ Add New Item</button>
+          </Link>
         </div>
       </div>
       <div className="inventories__headings">
