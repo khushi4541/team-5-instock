@@ -4,6 +4,7 @@ import axios from "axios";
 import InventoryListItem from "../InventoryListItem/InventoryListItem";
 import DeleteModal from "../DeleteModal/DeleteModal"; // Import the DeleteModal component
 import "./InventoryList.scss";
+import { Link } from "react-router-dom";
 
 function InventoryList() {
 	const [inventories, setInventories] = useState([]);
@@ -77,9 +78,9 @@ function InventoryList() {
 							/>
 						</svg>
 					</div>
-					<button className="inventories__button">
-						+ Add New Item
-					</button>
+          <Link to="/inventories/add" className="inventories__add-link">
+          <button className="warehouses__button">+ Add New Item</button>
+          </Link>
 				</div>
 			</div>
 			<div className="inventories__headings">
