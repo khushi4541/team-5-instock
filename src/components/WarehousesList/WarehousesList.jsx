@@ -1,5 +1,6 @@
 import "./WarehousesList.scss";
 import WarehousesListItem from "../WarehousesListItem/WarehousesListItem";
+import { Link } from "react-router-dom";
 
 function WarehousesList({ handleDeleteClick, warehousesData }) {
   return (
@@ -26,7 +27,9 @@ function WarehousesList({ handleDeleteClick, warehousesData }) {
               />
             </svg>
           </div>
+          <Link to="/warehouses/add" className="warehouses__add-link">
           <button className="warehouses__button">+ Add New Warehouse</button>
+          </Link>
         </div>
       </div>
       <div className="warehouses__headings">
