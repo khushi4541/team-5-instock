@@ -6,6 +6,7 @@ import axios from "axios";
 export default function EditWarehouse() {
   const navigate = useNavigate();
   const { id } = useParams();
+  const [errors, setErrors] = useState({});
 
   // State for form fields
   const [formData, setFormData] = useState({
@@ -19,8 +20,8 @@ export default function EditWarehouse() {
     contact_email: "",
   });
 
-  // State for errors
-  const [errors, setErrors] = useState({});
+  
+
 
   // Fetch warehouse data when the component loads
   useEffect(() => {

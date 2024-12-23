@@ -4,20 +4,9 @@ import WarehousesList from "../../components/WarehousesList/WarehousesList";
 import DeleteModal from "../../components/DeleteModal/DeleteModal";
 import axios from "axios";
 
-function WarehousesPage() {
+function WarehousesPage({ warehousesData, fetchWarehouses}) {
   const [showModal, setShowModal] = useState(false);
   const [selectedWarehouse, setSelectedWarehouse] = useState(null);
-  const [warehousesData, setWarehousesData] = useState([]);
-
-  const fetchWarehouses = async () => {
-    const url = `${baseURL}/warehouses/`;
-    try {
-      const response = await axios.get(url);
-      setWarehousesData(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   useEffect(() => {
     fetchWarehouses();
@@ -49,7 +38,7 @@ function WarehousesPage() {
   };
 
   return (
-    <section className="warehouses-page">
+    <>
       <WarehousesList
         handleDeleteClick={handleDeleteClick}
         warehousesData={warehousesData}
@@ -63,7 +52,7 @@ function WarehousesPage() {
           message={`Please confirm that you’d like to delete the ${selectedWarehouse.warehouse_name} warehouse from the list of warehouses. You won’t be able to undo this action.`}
         />
       )}
-    </section>
+    </>
   );
 }
 
