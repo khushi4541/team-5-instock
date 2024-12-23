@@ -13,16 +13,27 @@
 			gap: 1rem;
 			padding: 0.75rem 2rem;
 			background-color: $page-background;
-			color: $header-color;
+		}
+	}
+
+	&__label-container {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+
+		.warehouse-inventory__icon {
+			width: 1.5rem;
+			height: 1.5rem;
+			fill: $header-color;
 		}
 	}
 
 	&__label {
-		color: $text-color;
+		color: $header-color;
+        font-size: 0.75rem;
+        line-height: 1.125rem;
 
 		@include tablet {
-			font-size: 0.75rem;
-			line-height: 1.125rem;
 		}
 
 		&--actions {
@@ -37,10 +48,11 @@
 
 	&__item {
 		display: grid;
-		grid-template-columns: 1fr;
-		gap: 0.5rem;
+		grid-template-columns: 1fr 1fr;
+		gap: 0.75rem; /* Adjusted for better spacing */
 		padding: 1rem;
 		border-bottom: 1px solid $header-color;
+		background-color: white;
 
 		@include tablet {
 			grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
@@ -49,30 +61,49 @@
 		}
 	}
 
-	&__link {
-		display: flex;
-		align-items: center;
-		font-family: "Titillium Web";
-		font-weight: 600;
-		color: $interactive-elements;
-		text-decoration: none;
-
-		svg {
-			width: 1rem;
-			height: 1rem;
-			margin-left: 0.5rem;
-			fill: $interactive-elements;
-		}
-
-		&:hover {
-			text-decoration: underline;
-		}
-	}
+    &__link {
+        display: flex;
+        flex-direction: column;
+        font-family: "Titillium Web";
+        font-weight: 600;
+        color: $interactive-elements;
+        text-decoration: none;
+    
+        &:before {
+            content: "Inventory Item";
+            font-weight: 600;
+            font-size: 0.688rem;
+            line-height: 1rem;
+            color: $header-color;
+            margin-bottom: 0.25rem;
+    
+            @include tablet {
+                display: none;
+            }
+        }
+    
+        span {
+            display: flex;
+            align-items: center;
+    
+            svg {
+                width: 1rem;
+                height: 1rem;
+                margin-left: 0.5rem;
+                fill: $interactive-elements;
+            }
+        }
+    
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 
 	&__category,
 	&__quantity {
 		display: flex;
-		align-items: center;
+		flex-direction: column;
+		font-size: 0.875rem;
 
 		&:before {
 			content: attr(data-label);
@@ -80,68 +111,91 @@
 			font-size: 0.688rem;
 			line-height: 1rem;
 			color: $header-color;
-			margin-right: 0.25rem;
+			margin-bottom: 0.25rem;
 
 			@include tablet {
-				display: none; // Hide labels on tablet and desktop
+				display: none;
 			}
 		}
 	}
 
-	&__badge {
-		text-align: center;
-		padding: 0.25rem 0.5rem;
-		border-radius: 1rem;
-		font-weight: 600;
-		font-family: "Titillium Web";
-		display: inline-flex;
-		justify-content: center;
-		align-items: center;
-		max-width: 7rem;
+    &__badge {
+        text-align: center;
+        padding: 0.25rem;
+        border-radius: 1rem;
+        font-weight: 600;
+        font-family: "Titillium Web";
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 7rem;
+        position: relative;
+        font-size: 0.9rem;
+    
+        &.in-stock {
+            color: $in-stock-label;
+            background-color: rgba($in-stock-label, 0.07);
+        }
+    
+        &.out-of-stock {
+            color: $out-of-stock-label;
+            background-color: rgba($out-of-stock-label, 0.07);
+        }
+    
+        // Add a separate label above the badge for mobile
+        &-label {
+            display: block; /* Make sure the label is visible */
+            position: relative;
+            margin-bottom: 0.25rem; /* Adds spacing below the label */
+            text-align: left;
+            font-size: 0.688rem;
+            line-height: 1rem;
+            color: $header-color;
+            font-weight: 600;
+            font-family: "Titillium Web";
+    
+            @include tablet {
+                display: none; /* Hide on tablet and larger screens */
+            }
+        }
+    }
+    
+    &__actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: space-between;
+        align-items: center;
+    
+        @include tablet {
+            display: flex;
+            justify-content: flex-end;
+        }
+    
+        button {
+            border: none;
+            background: none;
+            cursor: pointer;
+    
+            &:first-child {
+                justify-self: flex-start;
+            }
+    
+            svg {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+        }
+    }
 
-		&.in-stock {
-			color: $in-stock-label;
-			background-color: rgba($in-stock-label, 0.07);
-		}
-		&.out-of-stock {
-			color: $out-of-stock-label;
-			background-color: rgba($out-of-stock-label, 0.07);
-		}
-
-		// Separate label for badge
-		&:before {
-			content: attr(data-label);
-			font-weight: 600;
-			font-size: 0.688rem;
-			line-height: 1rem;
-			color: $header-color;
-			margin-right: 0.25rem;
-
-			@include tablet {
-				display: none; // Hide label on tablet and desktop
-			}
-		}
-	}
-
-	&__actions {
+	&__edit {
+		cursor: pointer;
 		display: flex;
-		gap: 0.5rem;
-		justify-content: flex-end;
+		align-items: center;
 
-		// No label for actions
-		&:before {
-			display: none;
-		}
-
-		button {
-			border: none;
-			background: none;
-			cursor: pointer;
-
-			svg {
-				width: 1.5rem;
-				height: 1.5rem;
-			}
+		svg {
+			width: 1.5rem;
+			height: 1.5rem;
 		}
 	}
 }
