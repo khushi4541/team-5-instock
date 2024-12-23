@@ -1,0 +1,152 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+@use "../../styles/typography" as *;
+
+.edit-warehouse {
+  padding-top: 1rem;
+  width: 91%;
+  margin: 5rem auto 1rem auto;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  background-color: white;
+  position: relative;
+  bottom: 10.938rem;
+  margin-bottom: -10.938rem;
+
+  @include tablet {
+    width: 92%;
+    bottom: 11.25rem;
+    margin-bottom: 4rem;
+    padding-top: 0;
+  }
+
+  @include desktop {
+    width: 80%;
+    margin-bottom: -4rem;
+  }
+}
+
+.edit-warehouse__header {
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  @include tablet {
+    border-bottom: 1px solid $border-color;
+    padding: 1.55rem 2.5rem 0.25rem 2.5rem;
+  }
+}
+
+.edit-warehouse__arrow {
+  cursor: pointer;
+  fill: $interactive-elements;
+  width: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.edit-warehouse__title {
+  margin-bottom: 1.25rem;
+
+  @include tablet {
+    margin-bottom: 1.1rem;
+    margin-top: 0.75rem;
+  }
+}
+
+.edit-warehouse__form-content {
+  @include flex-column;
+
+  @include tablet {
+    flex-direction: row;
+  }
+}
+
+.edit-warehouse__section {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid $border-color;
+
+  @include tablet {
+    width: 50%;
+    border: none;
+    padding: 0 2.5rem;
+    margin-top: 2rem;
+  }
+}
+
+.edit-warehouse__section-title {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.edit-warehouse__form-group {
+  padding-right: 1.5rem;
+}
+
+.edit-warehouse__label {
+  margin-bottom: 0.25rem;
+}
+
+.edit-warehouse__input {
+  @include input-box;
+  width: 100%;
+  margin-bottom: 0.5rem;
+
+  &--error {
+    border: 1px solid $out-of-stock-label;
+  }
+}
+
+.edit-warehouse__actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: $page-background;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 0.5rem;
+
+  @include tablet {
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+}
+
+.edit-warehouse__cancel {
+  width: 50%;
+  @include secondary-button;
+
+  @include tablet {
+    width: auto;
+    margin-right: 1rem;
+  }
+}
+
+.edit-warehouse__save {
+  width: 50%;
+  @include primary-button;
+
+  @include tablet {
+    width: auto;
+  }
+}
+
+.edit-warehouse__error-message {
+  font-family: "Titillium Web", sans-serif;
+  color: $out-of-stock-label;
+  font-size: 0.6875rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  @include tablet {
+    font-size: 0.75rem;
+  }
+
+  .edit-warehouse__error-icon {
+    margin-right: 0.25rem;
+  }
+}

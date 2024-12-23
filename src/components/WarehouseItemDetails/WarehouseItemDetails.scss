@@ -1,0 +1,138 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+@use "../../styles/typography" as *;
+
+.card {
+  width: 91%;
+  margin: 5rem auto 1rem auto;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  background-color: white;
+  position: relative;
+  bottom: 10.938rem;
+  margin-bottom: -10.938rem;
+
+  @include tablet {
+    width: 92%;
+    bottom: 11.25rem;
+    margin-bottom: -8.5rem;
+    padding: 0;
+  }
+  @include desktop {
+    width: 80%;
+    margin-bottom: -8rem;
+    display: flex;
+    flex-direction: column;
+  }
+  &__header {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+    }
+  }
+  &__headeredit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    border: 1px solid $border-color;
+    padding: 0.5rem 1rem;
+    background-color: #2e66e5;
+    font-family: "Titillium Web";
+    font-weight: 400;
+    font-size: 0.813rem;
+    color: white;
+    height: 2.375rem;
+  
+    &:hover {
+      border-color: $interactive-elements;
+    }
+  
+    @include tablet {
+      height: 2.375rem;
+      font-size: 0.875rem;
+    }
+  
+    span {
+      display: none;
+      margin-left: 0.5rem;
+  
+      @include tablet {
+        display: inline; 
+      }
+    }
+  }
+  
+
+  &__lab {
+    color: $header-color;
+  }
+
+  &__div {
+    height: 1px;
+    background-color: #bdc5d5;
+    width: 100%;
+  }
+  &__selected {
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  }
+  &__contact {
+    border-bottom: 1px solid $border-color; 
+    padding-bottom: -1rem;
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 80%;
+    }
+  }
+  &__divider {
+    display: block;
+
+    @include tablet {
+      display: block;
+      width: 1px;
+      background-color: #ccc;
+      height: 10rem;
+      align-self: stretch;
+      margin: auto;
+      height: 5rem;
+    }
+  }
+  &__other {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1.5rem;
+    width: 60%;
+
+    @include tablet {
+      display: flex;
+      justify-content: flex-start;
+      gap: 3rem;
+      padding-left: 1.5rem;
+
+      display: flex;
+      justify-content: space-between;
+      width: 40%;
+    }
+  }
+  &__adress {
+    padding: 0 1.5rem;
+  }
+
+  &__info {
+    line-height: 0.75rem;
+  }
+  
+}

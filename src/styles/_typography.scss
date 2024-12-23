@@ -1,0 +1,75 @@
+@use "./mixins" as *;
+
+@font-face {
+  font-family: "Titillium Web";
+  src: url(./assets/fonts/TitilliumWeb-Regular.woff) format("woff"),
+    url(./assets/fonts/TitilliumWeb-Regular.woff2) format("woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Titillium Web";
+  src: url(./assets/fonts/TitilliumWeb-SemiBold.woff) format("woff"),
+    url(./assets/fonts/TitilliumWeb-SemiBold.woff2) format("woff2");
+  font-weight: 600;
+}
+
+h1 {
+  font-family: "Titillium Web";
+  font-weight: 600;
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+
+  @include tablet {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+}
+
+h2 {
+  font-family: "Titillium Web";
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+
+  @include tablet {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+h3 {
+  font-family: "Titillium Web";
+  font-weight: 600;
+  font-size: 0.813rem;
+  line-height: 1.25rem;
+
+  @include tablet {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
+}
+
+h4 {
+  font-family: "Titillium Web";
+  font-weight: 600;
+  font-size: 0.688rem;
+  line-height: 1rem;
+
+  @include tablet {
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+  }
+}
+
+p {
+  font-family: "Titillium Web";
+  font-weight: 400;
+  font-size: 0.813rem;
+  line-height: 1.375rem;
+
+  @include tablet {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
+}

@@ -1,0 +1,148 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+@use "../../styles/typography" as *;
+
+.items {
+  border-top: 1px solid $border-color;
+  padding: 1rem 1.5rem;
+
+  @include tablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    text-align: left;
+  }
+
+  &__details {
+    display: flex;
+    justify-content: space-between;
+
+    @include tablet {
+      display: contents;
+    }
+  }
+
+  &__location {
+    @include flex-column;
+    padding-right: 1rem;
+    width: 50%;
+
+    @include tablet {
+      display: contents;
+    }
+  }
+
+  &__status {
+    @include flex-column;
+    padding-left: 1rem;
+    width: 50%;
+    margin-top: 0;
+
+    @include tablet {
+      display: contents;
+    }
+    &-div {
+      margin-block-end: 1em;
+
+      @include tablet {
+        margin: 0;
+      }
+    }
+    &-tag {
+      display: inline;
+      height: 1.5rem;
+      padding: 0 0.5rem;
+      font-size: 0.875rem;
+      line-height: 1.625rem;
+      border-radius: 1.25rem;
+      text-align: start;
+      white-space: nowrap;
+      margin-top: 0;
+      @include tablet {
+        height: 1.625rem;
+      }
+
+      &--in-stock {
+        background-color: rgba(21, 132, 99, 0.07);
+        color: #158463;
+        border-radius: 1.25rem;
+        text-align: center;
+      }
+
+      &--out-of-stock {
+        background-color: rgba(201, 69, 21, 0.07);
+        color: #c94515;
+        border-radius: 1.25rem;
+        
+      }
+    }
+  }
+  &__inventory {
+    display: flex;
+    align-items: center;
+    @include reset-link-styling;
+
+    &:hover {
+      text-decoration: underline;
+      color: $interactive-elements;
+    }
+  }
+
+  &__name {
+    color: $interactive-elements;
+    font-weight: 600;
+    margin-top: 0;
+
+    @include tablet {
+      margin: 0;
+    }
+  }
+
+  &__arrow {
+    align-self: flex-start;
+  }
+
+  &__label {
+    margin: 0;
+    color: $header-color;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__info {
+    margin-top: 0;
+
+    @include tablet {
+      margin: 0;
+    }
+
+    &--phone {
+      margin-bottom: 0;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: space-between;
+
+    @include tablet {
+      justify-content: flex-end;
+    }
+  }
+
+  &__delete-btn {
+    all: unset;
+    cursor: pointer; 
+    display: inline-flex;
+    align-items: center;
+
+    svg {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+  }
+}

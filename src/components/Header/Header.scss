@@ -1,0 +1,89 @@
+@use "../../styles/typography" as *;
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.header {
+  display: flex;
+  flex-direction: column;
+  background-color: $nav-background;
+  height: 15rem;
+  padding-top: 1rem;
+
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 4%;
+    height: 10rem;
+  }
+
+  @include desktop {
+    padding: 2rem 10%;
+    height: 9.75rem;
+  }
+
+  &__logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+
+    @include tablet {
+      padding: 1rem 0;
+    }
+
+    &-image2 {
+      display: none;
+      width: 8rem;
+      height: 1.75rem;
+      top: 1.5rem;
+      left: 7.5rem;
+      gap: 0px;
+      opacity: 0px;
+      position: absolute;
+    }
+  }
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+
+    @include tablet {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 0.5rem 0;
+    }
+
+  }
+
+  &__link {
+    @include reset-link-styling;
+    color: $border-color;
+    width: 50%;
+    font-weight: 600;
+    padding: 0.6rem 0;
+
+    &:hover {
+      text-decoration: underline;
+      color: white;
+    }
+
+    @include tablet {
+      padding-left: 0.5rem;
+    }
+
+    &--selected {
+      border-radius: 20px;
+      background-color: $text-color;
+      color: white;
+      padding: 0.6rem 1rem;
+    }
+  }
+
+  &__option {
+    margin: 0;
+    text-align: center;
+    font-weight: inherit;
+    color: inherit;
+  }
+}

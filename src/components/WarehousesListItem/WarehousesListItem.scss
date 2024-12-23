@@ -1,0 +1,107 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+@use "../../styles/typography" as *;
+
+.item {
+  border-top: 1px solid $border-color;
+  padding: 1rem 1.5rem;
+
+  @include tablet {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    text-align: left;
+  }
+
+  &__details {
+    display: flex;
+    justify-content: space-between;
+
+    @include tablet {
+      display: contents;
+    }
+  }
+
+  &__location {
+    @include flex-column;
+    padding-right: 1rem;
+    width: 50%;
+
+    @include tablet {
+      display: contents;
+    }
+  }
+
+  &__contact {
+    @include flex-column;
+    padding-left: 1rem;
+    width: 50%;
+
+    @include tablet {
+      display: contents;
+    }
+  }
+
+  &__warehouse {
+    display: flex;
+    align-items: center;
+    @include reset-link-styling;
+
+    &:hover {
+      text-decoration: underline;
+      color: $interactive-elements;
+    }
+  }
+
+  &__place {
+    color: $interactive-elements;
+    font-weight: 600;
+    margin-top: 0;
+
+    @include tablet {
+      margin: 0;
+    }
+  }
+
+  &__arrow {
+    align-self: flex-start;
+  }
+
+  &__label {
+    margin: 0;
+    color: $header-color;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__info {
+    margin-top: 0;
+
+    @include tablet {
+      margin: 0;
+    }
+
+    &--phone {
+      margin-bottom: 0;
+    }
+   
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: space-between;
+
+    @include tablet {
+      justify-content: flex-end;
+    }
+  }
+
+  &__icon {
+    padding-left: 1rem;
+    cursor: pointer;
+  }
+}
