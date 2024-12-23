@@ -3,6 +3,29 @@
 @use "../../styles/typography" as *;
 
 .warehouse-inventory {
+    width: 91%;
+    margin: 8rem auto 1rem auto;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    background-color: white;
+    position: relative;
+    bottom: 10.938rem;
+    margin-bottom: -10.938rem;
+    border-top: 1px solid $border-color;
+
+    @include tablet {
+        width: 92%;
+        bottom: 11.25rem;
+        margin-bottom: -8.5rem;
+        padding: 0;
+    }
+    @include desktop {
+        width: 80%;
+        margin-bottom: -8rem;
+        display: flex;
+        flex-direction: column;
+    }
+
 	&__headings {
 		display: none;
 
@@ -33,9 +56,6 @@
         font-size: 0.75rem;
         line-height: 1.125rem;
 
-		@include tablet {
-		}
-
 		&--actions {
 			text-align: center;
 		}
@@ -49,9 +69,9 @@
 	&__item {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		gap: 0.75rem; /* Adjusted for better spacing */
+		gap: 0.75rem;
 		padding: 1rem;
-		border-bottom: 1px solid $header-color;
+		border-bottom: 1px solid $border-color;
 		background-color: white;
 
 		@include tablet {
@@ -132,9 +152,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        max-width: 7rem;
+        max-width: 6rem;
         position: relative;
-        font-size: 0.9rem;
+        font-size: 0.75rem;
+        margin-top: 0.4rem;
+        margin-left: -0.3rem;
     
         &.in-stock {
             color: $in-stock-label;
@@ -153,7 +175,6 @@
             margin-bottom: 0.25rem; 
             text-align: left;
             font-size: 0.688rem;
-            line-height: 1rem;
             color: $header-color;
             font-weight: 600;
             font-family: "Titillium Web";
