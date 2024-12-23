@@ -39,6 +39,8 @@
   }
   &__headeredit {
     display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 20px;
     border: 1px solid $border-color;
     padding: 0.5rem 1rem;
@@ -48,15 +50,32 @@
     font-size: 0.813rem;
     color: white;
     height: 2.375rem;
-    font-size: 0.875rem;
+  
     &:hover {
       border-color: $interactive-elements;
     }
+  
     @include tablet {
       height: 2.375rem;
       font-size: 0.875rem;
     }
+  
+    // Target the text inside the button
+    span {
+      display: none; // Hide the text on mobile
+      margin-left: 0.5rem;
+  
+      @include tablet {
+        display: inline; // Show the text on tablet and above
+      }
+    }
   }
+  
+
+  &__lab {
+    color: $header-color;
+  }
+
   &__div {
     height: 1px;
     background-color: #bdc5d5;
@@ -111,5 +130,9 @@
   }
   &__adress {
     padding: 0 1.5rem;
+  }
+
+  &__info {
+    line-height: 0.75rem;
   }
 }
