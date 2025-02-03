@@ -32,7 +32,7 @@
 
 ## Future Implementations
 
-**User Authentication:** Implement user login and roles to allow for different access levels (e.g., admin, viewer).
-**Advanced Search & Filtering:** Add search and filtering functionality to easily locate warehouses and inventory items.
-**Inventory Analytics:** Provide insights and reports on inventory levels and trends.
+- **User Authentication:** Implement user login and roles to allow for different access levels (e.g., admin, viewer).
+- **Advanced Search & Filtering:** Add search and filtering functionality to easily locate warehouses and inventory items.
+- **Inventory Analytics:** Provide insights and reports on inventory levels and trends.
 
